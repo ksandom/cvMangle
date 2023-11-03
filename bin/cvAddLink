@@ -1,0 +1,19 @@
+#!/bin/bash
+# Automatically add a link for every occurrence of a keyword.
+# Syntax: addLink keyword URL [file]
+
+keyword="$1"
+url="$2"
+file="${3:-cvData/cvData.md}"
+
+if [ "$url" == '' ]; then
+    echo "Expected both keyword and URL."
+    exit 1
+fi
+
+sed -i "s~ $keyword\( \|,\|\.\|$\)~ [$keyword]($url)\1~g" "$file"
+
+./commit "Add link for $keyword"
+
+./buildCV "$file"
+

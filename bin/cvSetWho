@@ -1,0 +1,21 @@
+#!/bin/bash
+# Set who the CV is for.
+# Syntax: cvSetWho "Full Name"
+
+whoNatural="$1"
+
+if [ "$1" == '' ]; then
+    echo "Expected a name. Eg
+    cvSetWho \"Jane Smith\""
+    exit 1
+fi
+
+whoCamel="$(echo "${whoNatural,}" | sed 's/ //g')"
+
+
+echo "# Settings for https://github.com/ksandom/cvMangle
+
+whoNatural=\"$whoNatural\"
+whoCamel=\"$whoCamel\"" > .cvData
+
+cat .cvData

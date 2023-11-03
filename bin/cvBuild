@@ -1,0 +1,70 @@
+#!/bin/bash
+
+inFile="${1:-cvData/cvData.md}"
+tmpFile="/tmp/$$-cv.md"
+variant="$2"
+
+function suggestName
+{
+  echo "$(date +%Y-%m-%d).$1"
+}
+
+function getFileName
+{
+  local name="$1"
+  local variantText="$2"
+
+  if [ "$variantText" == '' ]; then
+    echo "$name-cv-$whoCamel.pdf"
+  else
+    echo "$name-cv-$whoCamel-$variantText.pdf"
+  fi
+}
+
+
+
+if [ "$variant" == '' ]; then
+  echo "Varient not specified, so using the default."
+  variant="full"
+fi
+
+echo "Variant: $variant"
+
+
+if [ -e .cvData ]; then
+  echo "Found config."
+  . .cvData
+else
+  echo ".cvData not found. Weird things will happen. Make sure to run cvSetWho."
+fi
+
+filters=""
+
+colsFile=~/.config/cvMangle/lib/lua/cols.lua
+if [ -e "$colsFile" ]; then
+  filters="--lua-filter=$colsFile"
+  echo "Filters: $filters"
+else
+  echo "No filters."
+fi
+
+
+let attempt=0
+name="$(suggestName 0)"
+outFile="$(getFileName "$name" "$variant")"
+
+# while [ -e "$outFile" ]; do
+#   let attempt=$attempt+1
+#   echo "$outFile already exists. Trying the next iteration."
+#   name="$(suggestName 0)"
+#   outFile="$(getFileName "$name" "$variant")"
+# done
+
+echo "Preparing input: $tmpFile."
+sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$whoCamel"'/g;s/~!variant!~/'"${variant^}"'/g' "$inFile" > "$tmpFile"
+
+echo "Writing to \"$outFile\""
+
+pandoc "$filters" --pdf-engine xelatex "$tmpFile" -o "$outFile"
+
+rm -f "$tmpFile"

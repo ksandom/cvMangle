@@ -1,0 +1,14 @@
+#!/bin/bash
+# Commit from outside the repo. Useful for automation.
+# Syntax: commit "message"
+
+message="$1"
+
+if [ "$message" == '' ]; then
+    echo "Need commit message."
+    exit 1
+fi
+
+cd cvData
+git add .
+git commit -m "$message"
