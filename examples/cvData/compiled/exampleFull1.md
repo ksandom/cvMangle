@@ -1,8 +1,6 @@
 ---
 geometry: margin=1.5cm
 output: pdf_document
-header-includes:
-- \usepackage[document]{ragged2e}
 mainfont: NimbusSanL-Regu
 colorlinks: true
 header-includes: |

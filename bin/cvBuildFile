@@ -42,8 +42,8 @@ filters=""
 
 colsFile=~/.config/cvMangle/lib/lua/cols.lua
 if [ -e "$colsFile" ]; then
-  filters="--lua-filter=$colsFile"
-  echo "Filters: $filters"
+  filters="--lua-filter=$colsFile "
+  echo "Filters: \"$filters\""
 else
   echo "No filters."
 fi
@@ -65,6 +65,6 @@ sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$
 
 echo "Writing to \"$outFile\""
 
-pandoc "$filters" --pdf-engine xelatex "$tmpFile" -o "$outFile"
+pandoc $filters--pdf-engine xelatex "$tmpFile" -o "$outFile"
 
 rm -f "$tmpFile"

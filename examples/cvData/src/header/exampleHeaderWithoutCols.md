@@ -11,7 +11,6 @@ header-includes: |
     \fancyfoot[LE,LO]{~!whoNatural!~}
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
-    \usepackage{multicol}
     \usepackage[document]{ragged2e}
 classoption:
     - onecolumn
