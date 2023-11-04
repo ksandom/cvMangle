@@ -22,7 +22,7 @@ Make multiple versions of your CV in markdown.
 
 * pandoc
 
-## Working with the example
+## For devs working with the example in the repo tree
 
 ```
 cd examples
