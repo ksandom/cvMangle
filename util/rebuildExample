@@ -1,0 +1,11 @@
+#!/bin/bash -ex
+# Rebuildthe example using the latest code.
+
+cd examples
+rm -Rf cvData/
+cvGenerateBase
+cv
+
+if which dolphin; then
+    dolphin . &
+fi

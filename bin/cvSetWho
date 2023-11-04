@@ -16,6 +16,6 @@ whoCamel="$(echo "${whoNatural,}" | sed 's/ //g')"
 echo "# Settings for https://github.com/ksandom/cvMangle
 
 whoNatural=\"$whoNatural\"
-whoCamel=\"$whoCamel\"" > .cvData
+whoCamel=\"$whoCamel\"" > .cvConfig
 
-cat .cvData
+cat .cvConfig

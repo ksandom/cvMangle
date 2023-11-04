@@ -1,0 +1,5 @@
+#!/bin/bash
+# List all cv variants.
+
+cd cvData/variant
+ls -1

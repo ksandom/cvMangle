@@ -1,0 +1,5 @@
+#!/bin/bash
+# Compile and build all variants.
+
+cvCompile "$1"
+cvBuild "$1"
