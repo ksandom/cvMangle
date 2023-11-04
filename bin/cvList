@@ -1,5 +1,27 @@
 #!/bin/bash
 # List all cv variants.
 
-cd cvData/variant
-ls -1
+function listVariants
+{
+    cd cvData/variant
+    ls -1 | sed 's/\.txt$//g'
+}
+
+function listSrc
+{
+    cd cvData
+    find -type f | cut -b3- | grep ^src | sort
+}
+
+case "$1" in
+    "variants")
+        listVariants
+    ;;
+    "src")
+        listSrc
+    ;;
+    *)
+        listVariants
+    ;;
+esac
+

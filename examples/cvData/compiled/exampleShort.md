@@ -11,7 +11,6 @@ header-includes: |
     \fancyfoot[LE,LO]{~!whoNatural!~}
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
-    \usepackage{multicol}
     \usepackage[document]{ragged2e}
 classoption:
     - onecolumn
@@ -32,6 +31,7 @@ I'm the dude for the job.
 * Skill 3
 * Skill 4
 * Skill 5
+\pagebreak
 
 ## Job history
 

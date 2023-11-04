@@ -1,1 +1,0 @@
-../../src/keySkills/exampleKeySkills.md

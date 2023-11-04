@@ -11,7 +11,6 @@ header-includes: |
     \fancyfoot[LE,LO]{~!whoNatural!~}
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
-    \usepackage{multicol}
     \usepackage[document]{ragged2e}
 classoption:
     - onecolumn
@@ -26,6 +25,15 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
+
+## Key skills
+
+* Skill 1
+* Skill 2
+* Skill 3
+* Skill 4
+* Skill 5
+\pagebreak
 
 ## Job history
 
@@ -76,12 +84,3 @@ Skills:
 * Skill -3
 * Skill -2
 * Skill -1
-\pagebreak
-
-## Key skills
-
-* Skill 1
-* Skill 2
-* Skill 3
-* Skill 4
-* Skill 5

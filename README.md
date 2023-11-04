@@ -15,7 +15,7 @@ Make multiple versions of your CV in markdown.
     1. Run `cvSetWho "Your Name"` so that your name will get filled in in the appropriate places.
 1. Run `cv` to generate PDFs based on the example data.
 1. Modify files in `cvData/src` to change the contents.
-1. Change the the symlinks in `cvData/variant` to change the order, and which items get included in each variant.
+1. Modify the variants in `cvData/variant` to change which versions of each section gets included in each variant, and in what order. Use `cvList src` to see possible entries.
 1. Re-run `cv` to generate fresh PDFs with the current state.
 
 ## Requirements

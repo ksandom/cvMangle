@@ -5,23 +5,34 @@ function listParts
     ls -1 | sort
 }
 
+function getFilesFromList
+{
+    fileName="$1"
+
+    grep -v '^\(\|#.*\)$' "$fileName"
+}
+
 function doCompile
 {
     name="$1"
-    variantPath="cvData/variant/$name"
-    outFile="../../compiled/$name.md"
+    variantFile="cvData/variant/$name.txt"
+    outFile="compiled/$name.md"
 
-    if [ ! -e "$variantPath" ]; then
-        echo "Could not find variant \"$name\" in \"$variantPath\" from \"$(pwd)\"."
+    if [ ! -e "$variantFile" ]; then
+        echo "Could not find variant \"$name\" in \"$variantFile\" from \"$(pwd)\"."
         exit 1
     fi
 
-    cd "$variantPath"
+    cd cvData
 
     echo "Compiling \"$name\"."
-    cat `listParts` > "$outFile"
+    rm -f "$outFile"
+    touch "$outFile"
+    while read file; do
+        cat "$file" >> "$outFile"
+    done < <(getFilesFromList "../$variantFile")
 
-    cd ../../..
+    cd ..
 }
 
 

@@ -1,0 +1,8 @@
+# A variant of the full version, but with slightly different ordering to make better use of the space.
+
+src/header/exampleHeaderWithoutCols.md
+src/intro/longIntro.md
+src/keySkills/exampleKeySkills.md
+src/util/pageBreak.md
+src/jobHistory/exampleRecentJobHistory.md
+src/jobHistory/exampleOlderJobHistory.md

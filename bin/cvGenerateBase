@@ -22,33 +22,6 @@ cp -Rv ~/.config/cvMangle/template/* .
 cd ..
 
 echo
-echo "Setting up example variants."
-mkdir -pv variant/{exampleFull1,exampleFull2,exampleShort}
-cd variant
-
-cd exampleFull1
-ln -svf ../../src/header/exampleHeader.md 00-header.md
-ln -svf ../../src/intro/longIntro.md 01-intro.md
-ln -svf ../../src/keySkills/exampleKeySkills.md 02-keySkills.md
-ln -svf ../../src/util/pageBreak.md 03-pageBreak.md
-ln -svf ../../src/jobHistory/exampleRecentJobHistory.md 04-recentJobHistory.md
-ln -svf ../../src/jobHistory/exampleOlderJobHistory.md 05-olderJobHistory.md
+echo "Running first compile."
 cd ..
-
-cd exampleFull2
-ln -svf ../../src/header/exampleHeader.md 00-header.md
-ln -svf ../../src/intro/longIntro.md 01-intro.md
-ln -svf ../../src/jobHistory/exampleRecentJobHistory.md 02-recentJobHistory.md
-ln -svf ../../src/jobHistory/exampleOlderJobHistory.md 03-olderJobHistory.md
-ln -svf ../../src/util/pageBreak.md 04-pageBreak.md
-ln -svf ../../src/keySkills/exampleKeySkills.md 05-keySkills.md
-cd ..
-
-cd exampleShort
-ln -svf ../../src/header/exampleHeader.md 00-header.md
-ln -svf ../../src/intro/quickIntro.md 01-intro.md
-ln -svf ../../src/keySkills/exampleKeySkills.md 02-keySkills.md
-ln -svf ../../src/jobHistory/exampleRecentJobHistory.md 04-recentJobHistory.md
-cd ..
-
-
+cvCompile

@@ -2,8 +2,8 @@
 # Rebuildthe example using the latest code.
 
 cd examples
-rm -Rf cvData/
-cvGenerateBase
+rm -Rf cvData/{src,compiled}
+cvGenerateBase --force
 cv
 
 if which dolphin; then
