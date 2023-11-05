@@ -2,6 +2,11 @@
 
 While updating, it's possible to get into a dirty state where symlinks are left behind. Luckily, it's really easy to prevent.
 
+## See also
+
+* [install.md](install.md).
+* [uninstall.md](uninstall.md).
+
 ## Why
 
 Uninstall, and install work by looking at the current state of the repo, and installing/uninstalling based on how it would currently be installed. If this has changed as the result of an update, there could be stuff left behind.
