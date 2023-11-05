@@ -24,11 +24,17 @@ Read full [install](https://github.com/ksandom/cvMangle/blob/main/doc/howTo/inst
 
 * pandoc
 
-## For devs working with the example in the repo tree
+Read more: [Where it works](https://github.com/ksandom/cvMangle/blob/main/doc/whereItWorks.md).
+
+## Experimenting with the examples
 
 ```
 cd examples
 cv
 ```
+
+You'll get some PDF files appear in `examples/` .
+
+## For devs working with the example in the repo tree
 
 **NOTE:** If you are wanting to update any of the `src` files in the examples directory, be sure to update them in the `template` directory, and then run `./util/rebuildExample` to refresh the examples directory.
