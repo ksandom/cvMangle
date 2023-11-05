@@ -8,6 +8,8 @@ Make multiple versions of your CV in markdown.
 ./install/linkedInstall.sh
 ```
 
+Read full [install](https://github.com/ksandom/cvMangle/blob/main/doc/howTo/install.md)/[uninstall](https://github.com/ksandom/cvMangle/blob/main/doc/howTo/uninstall.md) documentation.
+
 ## Using it
 
 1. First time set up.
