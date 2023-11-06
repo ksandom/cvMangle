@@ -20,6 +20,8 @@ Read full [install](https://github.com/ksandom/cvMangle/blob/main/doc/howTo/inst
 1. Modify the variants in `cvData/variant` to change which versions of each section gets included in each variant, and in what order. Use `cvList src` to see possible entries.
 1. Re-run `cv` to generate fresh PDFs with the current state.
 
+Read full [usingIt.md](https://github.com/ksandom/cvMangle/blob/main/doc/usingIt.md) documentation.
+
 ## Requirements
 
 * pandoc

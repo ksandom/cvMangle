@@ -4,16 +4,16 @@ output: pdf_document
 mainfont: NimbusSanL-Regu
 colorlinks: true
 header-includes: |
-    \usepackage{fancyhdr}
-    \usepackage{zref}
-    \pagestyle{fancy}
-    \fancyhead[CO,CE]{}
-    \fancyfoot[LE,LO]{~!whoNatural!~}
-    \fancyfoot[CO,CE]{\thepage}
-    \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
-    \usepackage[document]{ragged2e}
+usepackage{fancyhdr}
+usepackage{zref}
+pagestyle{fancy}
+fancyhead[CO,CE]{}
+fancyfoot[LE,LO]{~!whoNatural!~}
+fancyfoot[CO,CE]{thepage}
+fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
+usepackage[document]{ragged2e}
 classoption:
-    - onecolumn
+- onecolumn
 ---
 
 # Curriculum Vitae – ~!whoNatural!~
@@ -25,7 +25,7 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
-\pagebreak
+pagebreak
 
 ## Job history
 
@@ -76,7 +76,7 @@ Skills:
 * Skill -3
 * Skill -2
 * Skill -1
-\pagebreak
+pagebreak
 
 ## Key skills
 

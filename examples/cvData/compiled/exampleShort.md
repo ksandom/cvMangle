@@ -4,16 +4,16 @@ output: pdf_document
 mainfont: NimbusSanL-Regu
 colorlinks: true
 header-includes: |
-    \usepackage{fancyhdr}
-    \usepackage{zref}
-    \pagestyle{fancy}
-    \fancyhead[CO,CE]{}
-    \fancyfoot[LE,LO]{~!whoNatural!~}
-    \fancyfoot[CO,CE]{\thepage}
-    \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
-    \usepackage[document]{ragged2e}
+usepackage{fancyhdr}
+usepackage{zref}
+pagestyle{fancy}
+fancyhead[CO,CE]{}
+fancyfoot[LE,LO]{~!whoNatural!~}
+fancyfoot[CO,CE]{thepage}
+fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
+usepackage[document]{ragged2e}
 classoption:
-    - onecolumn
+- onecolumn
 ---
 
 # Curriculum Vitae – ~!whoNatural!~
@@ -31,7 +31,7 @@ I'm the dude for the job.
 * Skill 3
 * Skill 4
 * Skill 5
-\pagebreak
+pagebreak
 
 ## Job history
 

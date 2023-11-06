@@ -12,10 +12,40 @@ function getFilesFromList
     grep -v '^\(\|#.*\)$' "$fileName"
 }
 
+function doInclude
+{
+    local file="$1"
+
+    if [ ! -e "$file" ]; then
+        echo "Could not find file \"$file\"." >&2
+        return
+    fi
+
+    while read line; do
+        read pC0 pDo command p1 p2 p3 p4 p5 p6 p7 p8 p9 < <(echo "$line")
+        identifier="$pC0 $pDo"
+        if [ "$identifier" == '<!-- do' ]; then
+            case "$command" in
+                "include")
+                    doInclude "$p1"
+                ;;
+                *)
+                    echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2
+                ;;
+            esac
+        elif [ "$identifier" == '<!-- #' ]; then
+            # Local comments that shouldn't make it to the final file.
+            true
+        else
+            echo "$line"
+        fi
+    done < "$file"
+}
+
 function doCompile
 {
     name="$1"
-    variantFile="cvData/variant/$name.txt"
+    variantFile="cvData/variant/$name.md"
     outFile="compiled/$name.md"
 
     if [ ! -e "$variantFile" ]; then
@@ -28,9 +58,8 @@ function doCompile
     echo "Compiling \"$name\"."
     rm -f "$outFile"
     touch "$outFile"
-    while read file; do
-        cat "$file" >> "$outFile"
-    done < <(getFilesFromList "../$variantFile")
+
+    doInclude "../$variantFile" >> "$outFile"
 
     cd ..
 }

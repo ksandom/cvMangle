@@ -1,9 +1,0 @@
-# This is the full variant, with all of the luxury bells and whistles.
-
-src/header/exampleHeaderWithoutCols.md
-src/intro/longIntro.md
-src/util/pageBreak.md
-src/jobHistory/exampleRecentJobHistory.md
-src/jobHistory/exampleOlderJobHistory.md
-src/util/pageBreak.md
-src/keySkills/exampleKeySkills.md
