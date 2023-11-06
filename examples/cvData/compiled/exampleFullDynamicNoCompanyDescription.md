@@ -27,13 +27,15 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
 \pagebreak
 
-## Job history
-
 ### Company 1 / Job title 1
 
-Company 1 does some stuff.
-
 At Company 1, I did some stuff.
+
+Responsibilities
+
+* Responsibility 1
+* Responsibility 2
+* Responsibility 3
 
 Skills:
 
@@ -43,9 +45,13 @@ Skills:
 
 ### Company 2 / Job title 2
 
-Company 2 does some other stuff.
-
 At Company 2, I did some other stuff.
+
+Responsibilities
+
+* Responsibility 1
+* Responsibility 3
+* Responsibility 4
 
 Skills:
 
@@ -55,9 +61,13 @@ Skills:
 
 ### Company 3 / Job title 3
 
-Company 3 does some more stuff.
-
 At Company 3, I did some more stuff.
+
+Responsibilities
+
+* Responsibility 2
+* Responsibility 4
+* Responsibility 6
 
 Skills:
 
@@ -67,9 +77,13 @@ Skills:
 
 ### Company 4 / Job title 4
 
-Company 4 does some old stuff.
-
 At Company 4, I did some old stuff.
+
+Responsibilities
+
+* Responsibility 2
+* Responsibility 3
+* Responsibility 4
 
 Skills:
 

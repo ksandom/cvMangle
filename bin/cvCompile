@@ -16,16 +16,20 @@ function doInclude
 {
     local file="$1"
 
+    if [ "$context" != '' ]; then
+        file="$(echo "$file" | sed "s#~\!context\!~#$context#g")"
+    fi
+
     if [ ! -e "$file" ]; then
         echo "Could not find file \"$file\"." >&2
         return
     fi
 
-    while read line; do
-        read pC0 pDo command p1 p2 p3 p4 p5 p6 p7 p8 < <(echo "$line")
+    while IFS= read -r line; do
+        read -r pC0 pDo command p1 p2 p3 p4 p5 p6 p7 p8 < <(echo "$line")
         identifier="$pC0 $pDo"
         if [ "$identifier" == '<!-- do' ]; then
-            doCommand "$command" "$p1" "$p2" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
+            doCommand "$command" "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
         elif [ "$identifier" == '<!-- #' ]; then
             # Local comments that shouldn't make it to the final file.
             true
@@ -33,6 +37,32 @@ function doInclude
             echo "$line"
         fi
     done < "$file"
+}
+
+function doForEach
+{
+    local collection="$1"
+    local command="$2"
+    local p1="$3"
+    local p2="$4"
+    local p3="$5"
+    local p4="$6"
+    local p5="$7"
+    local p6="$8"
+    local p7="$9"
+
+    while read item; do
+        context="$collection/$item"
+        doCommand "$command" "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7"
+        unset context
+    done < <(getCollection "$collection")
+}
+
+function getCollection
+{
+    cd "$1"
+    ls -1
+    cd ~-
 }
 
 function doCommand
@@ -48,8 +78,11 @@ function doCommand
     local p8="$9"
 
     case "$command" in
-        "include")
+        'include')
             doInclude "$p1"
+        ;;
+        'forEach')
+            doForEach "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
         ;;
         *)
             echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2
