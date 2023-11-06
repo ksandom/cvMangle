@@ -49,16 +49,18 @@ else
 fi
 
 
-let attempt=0
 name="$(suggestName 0)"
 outFile="$(getFileName "$name" "$variant")"
 
-# while [ -e "$outFile" ]; do
-#   let attempt=$attempt+1
-#   echo "$outFile already exists. Trying the next iteration."
-#   name="$(suggestName 0)"
-#   outFile="$(getFileName "$name" "$variant")"
-# done
+if [ "$DEBUG_CV" == '' ]; then
+  let attempt=0
+  while [ -e "$outFile" ]; do
+    let attempt=$attempt+1
+    echo "$outFile already exists. Trying the next iteration."
+    name="$(suggestName $attempt)"
+    outFile="$(getFileName "$name" "$variant")"
+  done
+fi
 
 echo "Preparing input: $tmpFile."
 sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$whoCamel"'/g;s/~!variant!~/'"${variant^}"'/g' "$inFile" > "$tmpFile"
