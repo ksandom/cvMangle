@@ -22,17 +22,10 @@ function doInclude
     fi
 
     while read line; do
-        read pC0 pDo command p1 p2 p3 p4 p5 p6 p7 p8 p9 < <(echo "$line")
+        read pC0 pDo command p1 p2 p3 p4 p5 p6 p7 p8 < <(echo "$line")
         identifier="$pC0 $pDo"
         if [ "$identifier" == '<!-- do' ]; then
-            case "$command" in
-                "include")
-                    doInclude "$p1"
-                ;;
-                *)
-                    echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2
-                ;;
-            esac
+            doCommand "$command" "$p1" "$p2" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
         elif [ "$identifier" == '<!-- #' ]; then
             # Local comments that shouldn't make it to the final file.
             true
@@ -40,6 +33,28 @@ function doInclude
             echo "$line"
         fi
     done < "$file"
+}
+
+function doCommand
+{
+    local command="$1"
+    local p1="$2"
+    local p2="$3"
+    local p3="$4"
+    local p4="$5"
+    local p5="$6"
+    local p6="$7"
+    local p7="$8"
+    local p8="$9"
+
+    case "$command" in
+        "include")
+            doInclude "$p1"
+        ;;
+        *)
+            echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2
+        ;;
+    esac
 }
 
 function doCompile
