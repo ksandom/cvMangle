@@ -1,19 +1,46 @@
 #!/bin/bash
 # Automatically add a link for every occurrence of a keyword.
-# Syntax: addLink keyword URL [file]
+# Syntax: $0 keyword URL [file]
 
 keyword="$1"
 url="$2"
-file="${3:-cvData/cvData.md}"
+file="$3"
 
+function doFile
+{
+    local file="$1"
+    echo "Creating links to \"$url\" for "$keywords" in \"$file\"."
+    sed -i 's~\b'"$keyword"'\( \|,\|\.\|\b\)~ ['"$keyword]($url)\1~g" "$file"
+}
+
+# Don't run if we don't have enough parameters.
 if [ "$url" == '' ]; then
-    echo "Expected both keyword and URL."
+    echo "Expected a keyword and URL." >&2
+    echo
+    command="$(basename "$0")"
+    grep -B1000 "^keyword=" "$(which "$0")" | grep '^#' | tail -n+2 | cut -b3- | sed "s#\$0#$command#g"
     exit 1
 fi
 
-sed -i "s~ $keyword\( \|,\|\.\|$\)~ [$keyword]($url)\1~g" "$file"
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
 
-./commit "Add link for $keyword"
+# Do a specific file, or do all of them.
+if [ "$file" != '' ]; then
+    doFile "$file"
+else
+    cd cvData/src
+    while read file; do
+        doFile "$file"
+    done< <(find -type f -iname '*.md')
+    cd ../..
+fi
 
-./buildCV "$file"
+# Add changes to source control.
+cvCommit "Add link for $keyword"
 
+# Rebuild the CVs.
+cv
