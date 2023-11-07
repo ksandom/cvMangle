@@ -3,4 +3,6 @@
 <!-- do include src/intro/quickIntro.md -->
 <!-- do include src/keySkills/exampleKeySkills.md -->
 <!-- do include src/util/pageBreak.md -->
+
+## Job history
 <!-- do include src/jobHistory/exampleRecentJobHistory.md -->

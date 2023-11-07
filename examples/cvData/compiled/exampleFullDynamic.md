@@ -27,6 +27,8 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
 \pagebreak
 
+## Job history
+
 ### Company 1 / Job title 1
 
 Company 1 does some stuff.

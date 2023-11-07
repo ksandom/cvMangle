@@ -1,6 +1,4 @@
 
-## Job history
-
 ### Company 1 / Job title 1
 
 Company 1 does some stuff.
