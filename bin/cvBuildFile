@@ -22,6 +22,18 @@ function getFileName
   fi
 }
 
+function isCustom
+{
+  local name="$1"
+
+  local result=0
+  if cvList variants | grep -q "^$name$"; then
+    result=1
+  fi
+
+  return "$result"
+}
+
 
 # Choose which variant to work on.
 if [ "$variant" == '' ]; then
@@ -77,17 +89,39 @@ else
 fi
 
 
+# Change destination if it's custom.
+isCustom "$variant"
+custom="$?"
+
+if [ "$custom" == "0" ]; then
+  outFile="custom/$outFile"
+  echo "$variant: Is custom. New destination: $outFile"
+  mkdir -p custom
+else
+  echo "$variant: Is not custom."
+fi
+
+
 # Put in variables.
 echo "$variant: Preparing input: $tmpFile."
 sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$whoCamel"'/g;s/~!variant!~/'"${variant^}"'/g' "$inFile" > "$tmpFile"
 
 
 # Move old versions out of the way.
-if [ "$variant" != '' ]; then
+if [ "$custom" == "0" ]; then
+  cd custom
   mkdir -p old
-  echo "$variant: Moving old versions to old/."
+  echo "$variant: Moving old custom version to old/."
   mv -v *-$variant.pdf* old
+  cd ..
+else
+  if [ "$variant" != '' ]; then
+    mkdir -p old
+    echo "$variant: Moving old versions to old/."
+    mv -v *-$variant.pdf* old
+  fi
 fi
+
 
 
 # Generate the PDF.
