@@ -31,7 +31,7 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 :::: columns
 
-::: {.column width="50%"}
+::: {.column width="50%" valign="t"}
 
 ### Company 1 / Job title 1
 
@@ -59,7 +59,7 @@ Skills:
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" valign="t"}
 
 ### Company 3 / Job title 3
 

@@ -1,2 +1,2 @@
 
-::: {.column width="70%"}
+::: {.column width="70%" valign="t"}

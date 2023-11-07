@@ -21,7 +21,7 @@ classoption:
 
 :::: columns
 
-::: {.column width="80%"}
+::: {.column width="80%" valign="t"}
 
 ## General statement
 
@@ -33,7 +33,7 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 :::
 
-::: {.column width="20%"}
+::: {.column width="20%" valign="t"}
 
 ## Key skills
 
@@ -50,7 +50,7 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 :::: columns
 
-::: {.column width="50%"}
+::: {.column width="50%" valign="t"}
 
 ### Company 1 / Job title 1
 
@@ -78,7 +78,7 @@ Skills:
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" valign="t"}
 
 ### Company 3 / Job title 3
 
