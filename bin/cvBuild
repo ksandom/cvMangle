@@ -3,18 +3,52 @@
 
 function doBuild
 {
-    name="$1"
-    file="cvData/compiled/$name.md"
+    local name="$1"
+    local file="cvData/compiled/$name.md"
+    local version="$2"
 
-    cvBuildFile "$file" "$name"
+    cvBuildFile "$file" "$name" "$version"
 }
 
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
+
+# Disable cvBuildFile's auto numbering.
+export CV_NO_AUTO=1
+
+# Derive the next number.
+today="$(date +%Y-%m-%d)"
+if [ -e .cvNumbering ]; then
+    . .cvNumbering
+
+    if [ "$lastDay" == "$today" ]; then
+        let versionNumber=$versionNumber+1
+    else
+        lastDay="$today"
+        versionNumber=0
+    fi
+else
+    lastDay="$today"
+    versionNumber=0
+fi
+
+echo "Version: $versionNumber   Last day: $lastDay   Today: $today"
+
+# Write back the config for the next run.
+echo "# Versioning info for file names.
+versionNumber=$versionNumber
+lastDay=$lastDay" > .cvNumbering
+
+# Choose how to build the CVs based on what input we got.
 if [ "$1" == '' ]; then
     while read variant; do
-        doBuild "$variant" &
+        doBuild "$variant" "$versionNumber" &
     done < <(cvList)
     wait
 else
-    doBuild "$1"
+    doBuild "$1" "$versionNumber"
 fi
 

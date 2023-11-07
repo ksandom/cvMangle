@@ -3,6 +3,7 @@
 inFile="${1:-cvData/cvData.md}"
 tmpFile="/tmp/$$-cv.md"
 variant="$2"
+suggestedVersion="${3:-0}"
 
 function suggestName
 {
@@ -49,10 +50,10 @@ else
 fi
 
 
-name="$(suggestName 0)"
+name="$(suggestName "$suggestedVersion")"
 outFile="$(getFileName "$name" "$variant")"
 
-if [ "$DEBUG_CV" == '' ]; then
+if [ "$CV_NO_AUTO" == '' ]; then
   let attempt=0
   while [ -e "$outFile" ]; do
     let attempt=$attempt+1
@@ -60,10 +61,19 @@ if [ "$DEBUG_CV" == '' ]; then
     name="$(suggestName $attempt)"
     outFile="$(getFileName "$name" "$variant")"
   done
+else
+  echo "CV_NO_AUTO is set to \"$CV_NO_AUTO\". Using the suggested version number of $suggestedVersion."
+  echo "File out: \"$outFile\" ."
 fi
 
 echo "Preparing input: $tmpFile."
 sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$whoCamel"'/g;s/~!variant!~/'"${variant^}"'/g' "$inFile" > "$tmpFile"
+
+if [ "$variant" != '' ]; then
+  mkdir -p old
+  echo "Moving old versions to old/."
+  mv -v *-$variant.pdf* old
+fi
 
 echo "Writing to \"$outFile\""
 
