@@ -23,28 +23,28 @@ function getFileName
 }
 
 
-# Don't run if we aren't in the right place.
-if [ ! -e "cvData" ]; then
-    echo "Expected to see the cvData directory. Exiting." >&2
-    exit 1
-fi
-
-
 # Choose which variant to work on.
 if [ "$variant" == '' ]; then
-  echo "Varient not specified, so using the default."
+  echo "Variant not specified, so using the default."
   variant="full"
 fi
 
 echo "Variant: $variant"
 
 
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "$variant: Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
+
+
 # Load the config.
 if [ -e .cvConfig ]; then
-  echo "Found config."
+  echo "$variant: Found config."
   . .cvConfig
 else
-  echo ".cvConfig not found. Weird things will happen. Make sure to run cvSetWho."
+  echo "$variant: .cvConfig not found. Weird things will happen. Make sure to run cvSetWho."
 fi
 
 
@@ -53,9 +53,9 @@ filters=""
 colsFile=~/.config/cvMangle/lib/lua/cols.lua
 if [ -e "$colsFile" ]; then
   filters="--lua-filter=$colsFile "
-  echo "Filters: \"$filters\""
+  echo "$variant: Filters: \"$filters\""
 else
-  echo "No filters."
+  echo "$variant: No filters."
 fi
 
 
@@ -67,31 +67,31 @@ if [ "$CV_NO_AUTO" == '' ]; then
   let attempt=0
   while [ -e "$outFile" ]; do
     let attempt=$attempt+1
-    echo "$outFile already exists. Trying the next iteration."
+    echo "$variant: $outFile already exists. Trying the next iteration."
     name="$(suggestName $attempt)"
     outFile="$(getFileName "$name" "$variant")"
   done
 else
-  echo "CV_NO_AUTO is set to \"$CV_NO_AUTO\". Using the suggested version number of $suggestedVersion."
-  echo "File out: \"$outFile\" ."
+  echo "$variant: CV_NO_AUTO is set to \"$CV_NO_AUTO\". Using the suggested version number of $suggestedVersion."
+  echo "$variant: File out: \"$outFile\" ."
 fi
 
 
 # Put in variables.
-echo "Preparing input: $tmpFile."
+echo "$variant: Preparing input: $tmpFile."
 sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$whoCamel"'/g;s/~!variant!~/'"${variant^}"'/g' "$inFile" > "$tmpFile"
 
 
 # Move old versions out of the way.
 if [ "$variant" != '' ]; then
   mkdir -p old
-  echo "Moving old versions to old/."
+  echo "$variant: Moving old versions to old/."
   mv -v *-$variant.pdf* old
 fi
 
 
 # Generate the PDF.
-echo "Writing to \"$outFile\""
+echo "$variant: Writing to \"$outFile\""
 pandoc $filters--pdf-engine xelatex "$tmpFile" -o "$outFile"
 
 
