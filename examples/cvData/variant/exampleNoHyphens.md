@@ -1,5 +1,5 @@
-<!-- # This is a dynamic variant. -->
-<!-- do include src/header/exampleHeaderWithoutCols.md -->
+<!-- # Get rid of hyphenation on line breaks. -->
+<!-- do include src/header/exampleHeaderNoHyphenation.md -->
 <!-- do include src/intro/exampleLongIntro.md -->
 <!-- do include src/util/pageBreak.md -->
 

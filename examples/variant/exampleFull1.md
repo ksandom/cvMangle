@@ -1,6 +1,6 @@
 <!-- # This is the full variant, with all of the luxury bells and whistles. -->
 <!-- do include src/header/exampleHeaderWithoutCols.md -->
-<!-- do include src/intro/longIntro.md -->
+<!-- do include src/intro/exampleLongIntro.md -->
 <!-- do include src/util/pageBreak.md -->
 
 ## Job history

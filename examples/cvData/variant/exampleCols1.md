@@ -1,6 +1,6 @@
 <!-- # This is the full variant, with all of the luxury bells and whistles. -->
 <!-- do include src/header/exampleHeader.md -->
-<!-- do include src/intro/longIntro.md -->
+<!-- do include src/intro/exampleLongIntro.md -->
 
 ## Job History
 <!-- do include src/util/colBegin.md -->

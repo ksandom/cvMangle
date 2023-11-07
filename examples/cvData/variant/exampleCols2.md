@@ -2,7 +2,7 @@
 <!-- do include src/header/exampleHeader.md -->
 <!-- do include src/util/colBegin.md -->
 <!-- do include src/util/col80.md -->
-<!-- do include src/intro/longIntro.md -->
+<!-- do include src/intro/exampleLongIntro.md -->
 <!-- do include src/util/colNext.md -->
 <!-- do include src/util/col20.md -->
 <!-- do include src/keySkills/exampleKeySkills.md -->

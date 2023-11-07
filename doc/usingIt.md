@@ -37,6 +37,14 @@ The first line begins with `<!-- #`, so it is a comment that will not go through
 
 The remaining lines are all includes. Note that the relative path begins at `src`, which is directly inside of cvData.
 
+## A note about examples
+
+Use anything you like from the examples.
+
+BUT...
+
+If you modify something that has been generated for you, and then later re-run [cvGenerateBase](https://github.com/ksandom/cvMangle/blob/main/bin/cvGenerateBase), you will lose your work. To try and prevent this, things that a user is likely to want to edit, is prefixed with "example". Conversely, things that are unlikely to need to change like the contents of [src/util](https://github.com/ksandom/cvMangle/tree/main/examples/cvData/src/util) are not prefixed.
+
 ## cvMangle commands
 
 ### include
