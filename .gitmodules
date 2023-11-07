@@ -1,0 +1,3 @@
+[submodule "lib/hk-pandoc-filters"]
+	path = lib/hk-pandoc-filters
+	url = https://github.com/chrisaga/hk-pandoc-filters.git

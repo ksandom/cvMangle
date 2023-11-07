@@ -1,6 +1,8 @@
 #!/bin/bash
 # Install to $HOME/bin as symlinks to the repo. Useful for developing the project.
 
+./install/installDeps.sh
+
 mkdir -pv ~/bin ~/.config
 
 if [ ! -e bin ]; then

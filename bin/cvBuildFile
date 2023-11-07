@@ -62,7 +62,7 @@ fi
 
 # Load filters if available.
 filters=""
-colsFile=~/.config/cvMangle/lib/lua/cols.lua
+colsFile=~/.config/cvMangle/lib/hk-pandoc-filters/column-div/column-div.lua
 if [ -e "$colsFile" ]; then
   filters="--lua-filter=$colsFile "
   echo "$variant: Filters: \"$filters\""

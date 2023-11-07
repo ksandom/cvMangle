@@ -31,3 +31,7 @@ Have a look in the [./install](https://github.com/ksandom/cvMangle/tree/main/ins
 * Places symlinks in those directories so that updates to the repo get propagated immediately.
     * Excellent for development.
     * Relies on the cloned repo staying in place. Ie if you delete it, the installation will break.
+
+### installDeps
+
+Install dependencies into the cvMangle directory.
