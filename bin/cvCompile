@@ -98,7 +98,12 @@ function doCompile
 
     if [ ! -e "$variantFile" ]; then
         echo "Could not find variant \"$name\" in \"$variantFile\" from \"$(pwd)\"."
-        exit 1
+        variantFile="cvData/custom/$name.md"
+        if [ -e "$variantFile" ]; then
+            echo "Found \"$variantFile\" instead. Continuing."
+        else
+            exit 1
+        fi
     fi
 
     cd cvData
