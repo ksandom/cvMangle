@@ -4,18 +4,31 @@
 
 whoNatural="$1"
 
+# Do we have everything we need?
 if [ "$1" == '' ]; then
     echo "Expected a name. Eg
     cvSetWho \"Jane Smith\""
     exit 1
 fi
 
+
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "$variant: Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
+
+
+# Derive camelCase version.
 whoCamel="$(echo "${whoNatural,}" | sed 's/ //g')"
 
 
+# Write settings.
 echo "# Settings for https://github.com/ksandom/cvMangle
 
 whoNatural=\"$whoNatural\"
 whoCamel=\"$whoCamel\"" > .cvConfig
 
+
+# Show the settings for verification.
 cat .cvConfig
