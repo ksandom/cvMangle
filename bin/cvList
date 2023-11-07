@@ -13,12 +13,30 @@ function listSrc
     find | cut -b3- | grep ^src | sort
 }
 
+function showHelp
+{
+    echo -e "List stuff.\nHere is some stuff that you can list:\n"
+    grep '")[ ]# ' "$(which "$0")" | sed 's/ *"//g;s/) # /\t/g' | column -t -s"$(echo -e '\t')"
+}
+
+
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "$variant: Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
+
+
+# Figure out what to get.
 case "$1" in
-    "variants")
+    "variants") # List available variants.
         listVariants
     ;;
-    "src")
+    "src") # List includable files in src/.
         listSrc
+    ;;
+    "help") # Show this help.
+        showHelp
     ;;
     *)
         listVariants
