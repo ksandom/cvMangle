@@ -112,7 +112,14 @@ function doCompile
     cd ..
 }
 
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "$variant: Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
 
+
+# Figure out what to compile.
 if [ "$1" == '' ]; then
     while read variant; do
         doCompile "$variant"

@@ -9,6 +9,12 @@ if [ "$message" == '' ]; then
     exit 1
 fi
 
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "$variant: Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
+
 cd cvData
 git add .
 git commit -m "$message"
