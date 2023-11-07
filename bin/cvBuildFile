@@ -23,7 +23,14 @@ function getFileName
 }
 
 
+# Don't run if we aren't in the right place.
+if [ ! -e "cvData" ]; then
+    echo "Expected to see the cvData directory. Exiting." >&2
+    exit 1
+fi
 
+
+# Choose which variant to work on.
 if [ "$variant" == '' ]; then
   echo "Varient not specified, so using the default."
   variant="full"
@@ -32,6 +39,7 @@ fi
 echo "Variant: $variant"
 
 
+# Load the config.
 if [ -e .cvConfig ]; then
   echo "Found config."
   . .cvConfig
@@ -39,8 +47,9 @@ else
   echo ".cvConfig not found. Weird things will happen. Make sure to run cvSetWho."
 fi
 
-filters=""
 
+# Load filters if available.
+filters=""
 colsFile=~/.config/cvMangle/lib/lua/cols.lua
 if [ -e "$colsFile" ]; then
   filters="--lua-filter=$colsFile "
@@ -50,6 +59,7 @@ else
 fi
 
 
+# Figure out the name and version.
 name="$(suggestName "$suggestedVersion")"
 outFile="$(getFileName "$name" "$variant")"
 
@@ -66,17 +76,24 @@ else
   echo "File out: \"$outFile\" ."
 fi
 
+
+# Put in variables.
 echo "Preparing input: $tmpFile."
 sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$whoCamel"'/g;s/~!variant!~/'"${variant^}"'/g' "$inFile" > "$tmpFile"
 
+
+# Move old versions out of the way.
 if [ "$variant" != '' ]; then
   mkdir -p old
   echo "Moving old versions to old/."
   mv -v *-$variant.pdf* old
 fi
 
-echo "Writing to \"$outFile\""
 
+# Generate the PDF.
+echo "Writing to \"$outFile\""
 pandoc $filters--pdf-engine xelatex "$tmpFile" -o "$outFile"
 
+
+# Clean up.
 rm -f "$tmpFile"
