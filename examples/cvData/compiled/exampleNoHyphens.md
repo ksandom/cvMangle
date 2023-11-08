@@ -31,6 +31,9 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 ## Job history
 
+::::::: columns
+:::::: {.column width="100%" valign="t"}
+
 ### Company 4 / Job title 4
 
 Company 4 does some old stuff.
@@ -48,6 +51,12 @@ Skills:
 * Skill -3
 * Skill -2
 * Skill -1
+
+::::::
+:::::::
+
+::::::: columns
+:::::: {.column width="100%" valign="t"}
 
 ### Company 3 / Job title 3
 
@@ -67,6 +76,12 @@ Skills:
 * Skill 3
 * Skill 4
 
+::::::
+:::::::
+
+::::::: columns
+:::::: {.column width="100%" valign="t"}
+
 ### Company 2 / Job title 2
 
 Company 2 does some other stuff.
@@ -85,6 +100,12 @@ Skills:
 * Skill 4
 * Skill 5
 
+::::::
+:::::::
+
+::::::: columns
+:::::: {.column width="100%" valign="t"}
+
 ### Company 1 / Job title 1
 
 Company 1 does some stuff.
@@ -102,6 +123,9 @@ Skills:
 * Skill 1
 * Skill 2
 * Skill 3
+
+::::::
+:::::::
 \pagebreak
 
 ## Key skills
