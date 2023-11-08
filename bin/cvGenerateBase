@@ -26,8 +26,3 @@ echo "Copying Example variants."
 cd variant
 cp -Rv ~/.config/cvMangle/examples/variant/* .
 cd ..
-
-echo
-echo "Running first compile."
-cd ..
-cvCompile
