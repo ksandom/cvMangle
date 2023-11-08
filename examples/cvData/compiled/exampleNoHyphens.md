@@ -31,7 +31,7 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 ## Job history
 
-::::::: columns
+::::::: {.columns noskip=""}
 :::::: {.column width="100%" valign="t"}
 
 ### Company 4 / Job title 4
@@ -55,7 +55,7 @@ Skills:
 ::::::
 :::::::
 
-::::::: columns
+::::::: {.columns noskip=""}
 :::::: {.column width="100%" valign="t"}
 
 ### Company 3 / Job title 3
@@ -79,7 +79,7 @@ Skills:
 ::::::
 :::::::
 
-::::::: columns
+::::::: {.columns noskip=""}
 :::::: {.column width="100%" valign="t"}
 
 ### Company 2 / Job title 2
@@ -103,7 +103,7 @@ Skills:
 ::::::
 :::::::
 
-::::::: columns
+::::::: {.columns noskip=""}
 :::::: {.column width="100%" valign="t"}
 
 ### Company 1 / Job title 1
