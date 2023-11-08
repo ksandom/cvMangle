@@ -4,6 +4,9 @@
 cd examples
 rm -Rf cvData/{src,compiled}
 cvGenerateBase --force
+
+cp -v variant/* cvData/variant
+
 cv
 
 if which dolphin; then
