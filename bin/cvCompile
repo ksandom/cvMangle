@@ -61,7 +61,7 @@ function doForEach
 function getCollection
 {
     cd "$1"
-    ls -1
+    ls -1 | sort -r
     cd ~-
 }
 

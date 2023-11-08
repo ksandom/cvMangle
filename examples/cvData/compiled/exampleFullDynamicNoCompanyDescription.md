@@ -29,37 +29,21 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 ## Job history
 
-### Company 1 / Job title 1
+### Company 4 / Job title 4
 
-At Company 1, I did some stuff.
+At Company 4, I did some old stuff.
 
 Responsibilities
 
-* Responsibility 1
 * Responsibility 2
-* Responsibility 3
-
-Skills:
-
-* Skill 1
-* Skill 2
-* Skill 3
-
-### Company 2 / Job title 2
-
-At Company 2, I did some other stuff.
-
-Responsibilities
-
-* Responsibility 1
 * Responsibility 3
 * Responsibility 4
 
 Skills:
 
-* Skill 2
-* Skill 4
-* Skill 5
+* Skill -3
+* Skill -2
+* Skill -1
 
 ### Company 3 / Job title 3
 
@@ -77,21 +61,37 @@ Skills:
 * Skill 3
 * Skill 4
 
-### Company 4 / Job title 4
+### Company 2 / Job title 2
 
-At Company 4, I did some old stuff.
+At Company 2, I did some other stuff.
 
 Responsibilities
 
-* Responsibility 2
+* Responsibility 1
 * Responsibility 3
 * Responsibility 4
 
 Skills:
 
-* Skill -3
-* Skill -2
-* Skill -1
+* Skill 2
+* Skill 4
+* Skill 5
+
+### Company 1 / Job title 1
+
+At Company 1, I did some stuff.
+
+Responsibilities
+
+* Responsibility 1
+* Responsibility 2
+* Responsibility 3
+
+Skills:
+
+* Skill 1
+* Skill 2
+* Skill 3
 \pagebreak
 
 ## Key skills
