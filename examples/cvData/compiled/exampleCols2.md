@@ -19,7 +19,7 @@ classoption:
 
 # Curriculum Vitae – ~!whoNatural!~
 
-:::: columns
+:::: {.columns noskip=""}
 
 ::: {.column width="80%" valign="t"}
 
@@ -48,7 +48,7 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 ## Job History
 
-:::: columns
+:::: {.columns noskip=""}
 
 ::: {.column width="50%" valign="t"}
 
