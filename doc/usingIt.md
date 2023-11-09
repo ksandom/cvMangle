@@ -47,7 +47,7 @@ If you modify something that has been generated for you, and then later re-run [
 
 ## cvMangle commands
 
-### include
+### include - basic syntax
 
 Insert another file into the output as if it's contents existed at the point in the file where the `include` command is present.
 
@@ -68,6 +68,25 @@ To find things that you can include, run
 ```
 cvList src
 ```
+
+### include with context
+
+This is useful for doing things like highlighting a single job, but using dynamic formatting.
+
+Syntax
+
+```html
+<!-- do include src/jobHistory/exampleDynamicFull.md src/jobHistory/jobs/job2 -->
+```
+
+If this case, the formatting of `src/jobHistory/exampleDynamicFull.md` will be used to display the data from `src/jobHistory/jobs/job2`.
+
+Eg
+
+```html
+<!-- do include src/intro/longIntro.md -->
+```
+
 
 ### forEach
 

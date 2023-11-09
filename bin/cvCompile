@@ -15,8 +15,18 @@ function getFilesFromList
 function doInclude
 {
     local file="$1"
+    local contextOverride="$2"
+    local startingContext="$context"
 
-    if [ "$context" != '' ]; then
+    if [ "$contextOverride" == '-->' ]; then
+        contextOverride=''
+    fi
+
+    if [ "$context" != '' ] || [ "$contextOverride" != '' ]; then
+        if [ "$contextOverride" != '' ]; then
+            context="$contextOverride"
+        fi
+
         file="$(echo "$file" | sed "s#~\!context\!~#$context#g")"
     fi
 
@@ -37,6 +47,8 @@ function doInclude
             echo "$line"
         fi
     done < "$file"
+
+    context="$startingContext"
 }
 
 function doForEach
@@ -79,7 +91,7 @@ function doCommand
 
     case "$command" in
         'include')
-            doInclude "$p1"
+            doInclude "$p1" "$p2"
         ;;
         'forEach')
             doForEach "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
