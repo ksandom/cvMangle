@@ -4,6 +4,7 @@ inFile="${1:-cvData/cvData.md}"
 tmpFile="/tmp/$$-cv.md"
 variant="$2"
 suggestedVersion="${3:-0}"
+cvConfig="cvData/cvConfig"
 
 function suggestName
 {
@@ -52,11 +53,11 @@ fi
 
 
 # Load the config.
-if [ -e .cvConfig ]; then
+if [ -e "$cvConfig" ]; then
   echo "$variant: Found config."
-  . .cvConfig
+  . "$cvConfig"
 else
-  echo "$variant: .cvConfig not found. Weird things will happen. Make sure to run cvSetWho."
+  echo "$variant: "$cvConfig" not found. Weird things will happen. Make sure to run cvSetWho."
 fi
 
 

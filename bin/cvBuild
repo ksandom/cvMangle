@@ -1,6 +1,8 @@
 #!/bin/bash
 # Build a variant, or all variants.
 
+numberingConfig="cvData/cvNumbering"
+
 function doBuild
 {
     local name="$1"
@@ -21,8 +23,8 @@ export CV_NO_AUTO=1
 
 # Derive the next number.
 today="$(date +%Y-%m-%d)"
-if [ -e .cvNumbering ]; then
-    . .cvNumbering
+if [ -e "$numberingConfig" ]; then
+    . "$numberingConfig"
 
     if [ "$lastDay" == "$today" ]; then
         let versionNumber=$versionNumber+1
@@ -40,7 +42,7 @@ echo "Version: $versionNumber   Last day: $lastDay   Today: $today"
 # Write back the config for the next run.
 echo "# Versioning info for file names.
 versionNumber=$versionNumber
-lastDay=$lastDay" > .cvNumbering
+lastDay=$lastDay" > "$numberingConfig"
 
 # Choose how to build the CVs based on what input we got.
 if [ "$1" == '' ]; then

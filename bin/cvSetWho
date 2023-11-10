@@ -3,6 +3,8 @@
 # Syntax: cvSetWho "Full Name"
 
 whoNatural="$1"
+cvConfig="cvData/cvConfig"
+
 
 # Do we have everything we need?
 if [ "$1" == '' ]; then
@@ -27,8 +29,8 @@ whoCamel="$(echo "${whoNatural,}" | sed 's/ //g')"
 echo "# Settings for https://github.com/ksandom/cvMangle
 
 whoNatural=\"$whoNatural\"
-whoCamel=\"$whoCamel\"" > .cvConfig
+whoCamel=\"$whoCamel\"" > "$cvConfig"
 
 
 # Show the settings for verification.
-cat .cvConfig
+cat "$cvConfig"

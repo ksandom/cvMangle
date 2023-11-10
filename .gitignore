@@ -6,5 +6,4 @@ cols.lua
 *log
 
 # Basic state information.
-.cvNumbering
-.cvConfig
+cvNumbering
