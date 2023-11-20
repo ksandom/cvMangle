@@ -1,5 +1,6 @@
 #!/bin/bash
 # Install dependencies within the cvMangle directory.
+# Copyright (C) 2023  Kevin Sandom
 
 mkdir -p lib
 cd lib

@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- # This is a dynamic variant with no company descriptions. -->
 <!-- do include src/header/exampleHeaderWithoutCols.md -->
 <!-- do include src/intro/exampleLongIntro.md -->

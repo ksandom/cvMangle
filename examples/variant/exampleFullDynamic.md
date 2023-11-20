@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- # This is a dynamic variant. -->
 <!-- do include src/header/exampleHeader.md -->
 <!-- do include src/intro/exampleLongIntro.md -->

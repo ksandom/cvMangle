@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- # A variant of the full version, but with slightly different ordering to make better use of the space.-->
 <!-- do include src/header/exampleHeaderWithoutCols.md -->
 <!-- do include src/intro/exampleLongIntro.md -->

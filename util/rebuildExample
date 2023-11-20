@@ -1,5 +1,6 @@
 #!/bin/bash -ex
 # Rebuildthe example using the latest code.
+# Copyright (C) 2023  Kevin Sandom
 
 cd examples
 rm -Rf cvData/{src,compiled}

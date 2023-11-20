@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # Cleanly updating cvMangle
 
 While updating, it's possible to get into a dirty state where symlinks are left behind. Luckily, it's really easy to prevent.

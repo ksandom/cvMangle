@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # Adding columns to your CV
 
 It's really easy. You can put them anywhere where you can put includes.

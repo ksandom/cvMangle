@@ -1,5 +1,6 @@
 #!/bin/bash
 # Set who the CV is for.
+# Copyright (C) 2023  Kevin Sandom
 # Syntax: cvSetWho "Full Name"
 
 whoNatural="$1"

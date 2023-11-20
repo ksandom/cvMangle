@@ -1,5 +1,6 @@
 #!/bin/bash
 # Compile and build all variants.
+# Copyright (C) 2023  Kevin Sandom
 
 cvCompile "$1"
 cvBuild "$1"

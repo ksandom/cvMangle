@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- # This is the full variant, with all of the luxury bells and whistles. -->
 <!-- do include src/header/exampleHeader.md -->
 <!-- do include src/util/colBegin.md -->

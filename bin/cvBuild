@@ -1,5 +1,6 @@
 #!/bin/bash
 # Build a variant, or all variants.
+# Copyright (C) 2023  Kevin Sandom
 
 numberingConfig="cvData/cvNumbering"
 

@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # How to uninstall cvMangle
 
 TL;DR Run

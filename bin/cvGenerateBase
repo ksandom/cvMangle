@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright (C) 2023  Kevin Sandom
 # Create the directory structure, and an example setup, in the current directory.
 
 if [ -e cvData ]; then

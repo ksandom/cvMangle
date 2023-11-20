@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- # Get rid of hyphenation on line breaks. -->
 <!-- do include src/header/exampleHeaderNoHyphenation.md -->
 <!-- do include src/intro/exampleLongIntro.md -->

@@ -1,4 +1,6 @@
 #!/bin/bash
+# Compile markdown into a single markdown file.
+# Copyright (C) 2023  Kevin Sandom
 
 function listParts
 {

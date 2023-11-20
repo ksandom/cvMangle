@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # Make blocks that don't get split over 2 pages
 
 It's really easy. You can put them anywhere where you can put includes.

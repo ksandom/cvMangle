@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 ---
 geometry: margin=1.5cm
 output: pdf_document

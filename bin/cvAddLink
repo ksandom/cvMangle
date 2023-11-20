@@ -1,5 +1,6 @@
 #!/bin/bash
 # Automatically add a link for every occurrence of a keyword.
+# Copyright (C) 2023  Kevin Sandom
 # Syntax: $0 keyword URL [file]
 
 keyword="$1"

@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # How to install cvMangle
 
 TL;DR Run

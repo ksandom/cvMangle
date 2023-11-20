@@ -1,5 +1,6 @@
 #!/bin/bash
 # Install to $HOME/bin as symlinks to the repo. Useful for developing the project.
+# Copyright (C) 2023  Kevin Sandom
 
 ./install/installDeps.sh
 

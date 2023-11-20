@@ -1,5 +1,6 @@
 #!/bin/bash
 # Commit from outside the repo. Useful for automation.
+# Copyright (C) 2023  Kevin Sandom
 # Syntax: commit "message"
 
 message="$1"

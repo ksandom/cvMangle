@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # How to build custom CVs
 
 You probably want to build most variants every time. However, sometimes you may one to do a one-off CV for a particular company. For that, you want a custom CV.

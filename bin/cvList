@@ -1,5 +1,6 @@
 #!/bin/bash
 # List all cv variants.
+# Copyright (C) 2023  Kevin Sandom
 
 function listVariants
 {

@@ -1,5 +1,6 @@
 #!/bin/bash
 # UnInstall from $HOME/bin .
+# Copyright (C) 2023  Kevin Sandom
 
 mkdir -pv ~/bin ~/.config
 
