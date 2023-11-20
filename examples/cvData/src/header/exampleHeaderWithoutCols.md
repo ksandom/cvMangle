@@ -1,4 +1,3 @@
-<!-- Copyright (C) 2023  Kevin Sandom -->
 ---
 geometry: margin=1.5cm
 output: pdf_document
@@ -13,8 +12,10 @@ header-includes: |
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
     \usepackage[document]{ragged2e}
+    \usepackage{fontsize}
 classoption:
     - onecolumn
 ---
+<!-- Copyright (C) 2023  Kevin Sandom -->
 
 # Curriculum Vitae – ~!whoNatural!~
