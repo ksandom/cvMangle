@@ -1,5 +1,3 @@
-<!-- Copyright (C) 2023  Kevin Sandom -->
-<!-- Copyright (C) 2023  Kevin Sandom -->
 ---
 geometry: margin=1.5cm
 output: pdf_document
@@ -15,20 +13,18 @@ header-includes: |
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
     \usepackage{multicol}
     \usepackage[document]{ragged2e}
+    \usepackage{fontsize}
 classoption:
     - onecolumn
 ---
 
 # Curriculum Vitae – ~!whoNatural!~
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Begin a set of columns. -->
 
 :::: {.columns noskip=""}
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Begin a new column. -->
 
 ::: {.column width="80%" valign="t"}
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ## General statement
 
@@ -37,15 +33,12 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Get read for the next column (terminate the current column.) -->
 
 :::
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Begin a new column. -->
 
 ::: {.column width="20%" valign="t"}
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ## Key skills
 
@@ -54,22 +47,18 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 * Skill 3
 * Skill 4
 * Skill 5
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- End of column set. -->
 
 :::
 ::::
 
 ## Job History
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Begin a set of columns. -->
 
 :::: {.columns noskip=""}
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Begin a new column. -->
 
 ::: {.column width="50%" valign="t"}
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ### Company 4 / Job title 4
 
@@ -94,15 +83,12 @@ Skills:
 * Skill 1
 * Skill 3
 * Skill 4
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Get read for the next column (terminate the current column.) -->
 
 :::
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Begin a new column. -->
 
 ::: {.column width="50%" valign="t"}
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 
 ### Company 2 / Job title 2
@@ -128,7 +114,6 @@ Skills:
 * Skill 1
 * Skill 2
 * Skill 3
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- End of column set. -->
 
 :::

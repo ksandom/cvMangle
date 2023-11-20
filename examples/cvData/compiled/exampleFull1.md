@@ -1,5 +1,3 @@
-<!-- Copyright (C) 2023  Kevin Sandom -->
-<!-- Copyright (C) 2023  Kevin Sandom -->
 ---
 geometry: margin=1.5cm
 output: pdf_document
@@ -14,12 +12,12 @@ header-includes: |
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
     \usepackage[document]{ragged2e}
+    \usepackage{fontsize}
 classoption:
     - onecolumn
 ---
 
 # Curriculum Vitae – ~!whoNatural!~
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ## General statement
 
@@ -28,12 +26,10 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Insert a page break. -->
 \pagebreak
 
 ## Job history
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ### Company 4 / Job title 4
 
@@ -58,7 +54,6 @@ Skills:
 * Skill 1
 * Skill 3
 * Skill 4
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 
 ### Company 2 / Job title 2
@@ -84,10 +79,8 @@ Skills:
 * Skill 1
 * Skill 2
 * Skill 3
-<!-- Copyright (C) 2023  Kevin Sandom -->
 <!-- Insert a page break. -->
 \pagebreak
-<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ## Key skills
 

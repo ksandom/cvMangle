@@ -45,6 +45,9 @@ function doInclude
         elif [ "$identifier" == '<!-- #' ]; then
             # Local comments that shouldn't make it to the final file.
             true
+        elif [ "$identifier" == '<!-- Copyright' ]; then
+            # Copyright lines shouldn't make it to the final file.
+            true
         else
             echo "$line"
         fi
