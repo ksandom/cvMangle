@@ -1,4 +1,5 @@
 <!-- Copyright (C) 2023  Kevin Sandom -->
+<!-- Copyright (C) 2023  Kevin Sandom -->
 ---
 geometry: margin=1.5cm
 output: pdf_document
@@ -18,12 +19,14 @@ classoption:
 ---
 
 # Curriculum Vitae – ~!whoNatural!~
+<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ## General statement
 
 flish, flip, flop...
 
 I'm the dude for the job.
+<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ## Key skills
 
@@ -32,9 +35,12 @@ I'm the dude for the job.
 * Skill 3
 * Skill 4
 * Skill 5
+<!-- Copyright (C) 2023  Kevin Sandom -->
+<!-- Insert a page break. -->
 \pagebreak
 
 ## Job history
+<!-- Copyright (C) 2023  Kevin Sandom -->
 
 ### Company 4 / Job title 4
 
