@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # cvMangle
 
 Make multiple versions of your CV in markdown.

@@ -1,3 +1,4 @@
+<!-- Copyright (C) 2023  Kevin Sandom -->
 # Install
 
 This directory contains the various install scripts for installing cvMangle.
