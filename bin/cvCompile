@@ -78,7 +78,7 @@ function doForEach
 function getCollection
 {
     cd "$1"
-    ls -1 | sort -r
+    ls -1 | sort -r | grep -v _template
     cd ~-
 }
 
