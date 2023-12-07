@@ -1,0 +1,56 @@
+#!/bin/bash
+# Make sure that every item in a set of directories has has all of the files from _template, without overwriting existing files. And that there are no extra files in any item that is not already present in the _template. This is expected to be run from within the set directory.
+# Copyright (C) 2023  Kevin Sandom
+
+templateDir="_template"
+
+if [ ! -e "$templateDir" ]; then
+    echo "Can not see the \"$templateDir\" directory. It should contain an example file of every file that you want cvSyncSet to put in every member directory. An easy way to start is to copy one of the existing job directories to $templateDir." >&2
+    exit 1
+fi
+
+function listTemplate
+{
+    # List out the template files.
+
+    cd "$templatePath"
+    ls -1
+    cd ~-
+}
+
+function forwardSync
+{
+    # Make sure that we have every file that is in the template.
+
+    cd "$1"
+    while read -r templateFile; do
+        if [ ! -e "$templateFile" ]; then
+            cp -v "$templatePath/$templateFile" .
+        fi
+    done < <(listTemplate)
+    cd ..
+}
+
+function reverseSync
+{
+    # Remove files from the set member that are not in the template.
+    cd "$1"
+    while read -r setDirFile; do
+        if [ ! -e "$templatePath/$setDirFile" ]; then
+            mkdir -p exclude
+            mv -v "$setDirFile" exclude
+        fi
+    done < <(ls -1 | grep -v exclude)
+    cd ..
+}
+
+templatePath="../$templateDir"
+
+while read -r member; do
+    if [ -d "$member" ]; then
+        echo "$member"
+        forwardSync "$member"
+        reverseSync "$member"
+    fi
+done < <(ls -1 | grep -v "$templateDir")
+
