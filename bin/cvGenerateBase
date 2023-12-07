@@ -2,12 +2,18 @@
 # Copyright (C) 2023  Kevin Sandom
 # Create the directory structure, and an example setup, in the current directory.
 
+overwrite=true
+copyExamples=true
+
 if [ -e cvData ]; then
     if [ "$1" == '--force' ]; then
-        echo "cvData already exists, and --force was specified. Continuing."
+        echo "cvData already exists, and --force was specified. Will overwrite."
+        overwrite=true
+        copyExamples=true
     else
-        echo "cvData already exists, and --force was not specified. Exiting."
-        exit 1
+        echo "cvData already exists, and --force was not specified. Will not overwrite."
+        overwrite=false
+        copyExamples=false
     fi
 fi
 
@@ -19,11 +25,23 @@ mkdir -pv src variant compiled custom
 echo
 echo "Copying example files."
 cd src
-cp -Rv ~/.config/cvMangle/template/* .
+if [ "$overwrite" == 'true' ]; then
+    cp -Rv ~/.config/cvMangle/template/* .
+else
+    cp -Rnv ~/.config/cvMangle/template/* .
+fi
 cd ..
 
 echo
-echo "Copying Example variants."
-cd variant
-cp -Rv ~/.config/cvMangle/examples/variant/* .
-cd ..
+if [ "$copyExamples" == 'true' ]; then
+    echo "Copying Example variants."
+    cd variant
+    if [ "$overwrite" == 'true' ]; then
+        cp -Rv ~/.config/cvMangle/examples/variant/* .
+    else
+        cp -Rnv ~/.config/cvMangle/examples/variant/* .
+    fi
+    cd ..
+else
+    echo "Not re-copying examples."
+fi
