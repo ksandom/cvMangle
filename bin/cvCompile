@@ -75,8 +75,8 @@ function readFile
 
 function doForEach
 {
-    local collection="$1"
-    local limit="$2"
+    local limit="$1"
+    local collection="$2"
     local command="$3"
     local p1="$4"
     local p2="$5"
@@ -120,7 +120,7 @@ function doCommand
             doInclude "$p1" "$p2" "$p3"
         ;;
         'forEach')
-            doForEach "$p1" . "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
+            doForEach . "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
         ;;
         'forEachLimit')
             doForEach "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
