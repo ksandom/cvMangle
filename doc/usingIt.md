@@ -207,3 +207,29 @@ src/jobHistory/dynamicNoDescriptions.md:
 In both cases, they have `~!context!~`, which resolves to the current item within the jobs directory. Eg `jobs`, or `jobs2`.
 
 So as we iterate over each directory within the jobs directory, we include a few files. How many, depends on which file we told the forEach to include.
+
+## forEachLimit
+
+Exactly the same as `forEach`, except it limits the number of entries that get listed. This is useful if you want to only show a subset of the results for a particular variant.
+
+`limit` is expected to be an integer.
+
+Syntax
+
+```html
+<!-- do forEach relative/path/to/directory/of/directories limit include relative/path/to/file/from/cvData/file.md -->
+```
+
+Or more concisely
+
+```html
+<!-- do forEach directoryOfdirectories limit include file.md -->
+```
+
+Eg
+
+```html
+<!-- do forEach src/jobHistory/jobs 5 include src/jobHistory/dynamicFull.md -->
+```
+
+This will only show the 5 most recent entries.

@@ -76,20 +76,24 @@ function readFile
 function doForEach
 {
     local collection="$1"
-    local command="$2"
-    local p1="$3"
-    local p2="$4"
-    local p3="$5"
-    local p4="$6"
-    local p5="$7"
-    local p6="$8"
-    local p7="$9"
+    local limit="$2"
+    local command="$3"
+    local p1="$4"
+    local p2="$5"
+    local p3="$6"
+    local p4="$7"
+    local p5="$8"
+    local p6="$9"
+
+    if [ "$limit" == '.' ]; then
+        limit=9999
+    fi
 
     while read item; do
         context="$collection/$item"
         doCommand "$command" "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7"
         unset context
-    done < <(getCollection "$collection")
+    done < <(getCollection "$collection" | head -n"$limit")
 }
 
 function getCollection
@@ -116,6 +120,9 @@ function doCommand
             doInclude "$p1" "$p2" "$p3"
         ;;
         'forEach')
+            doForEach "$p1" . "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
+        ;;
+        'forEachLimit')
             doForEach "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
         ;;
         *)
