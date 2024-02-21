@@ -18,9 +18,10 @@ function doInclude
 {
     local file="$1"
     local contextOverride="$2"
+    local head="$3"
     local startingContext="$context"
 
-    if [ "$contextOverride" == '-->' ]; then
+    if [ "$contextOverride" == '-->' ] || [ "$contextOverride" == '.' ]; then
         contextOverride=''
     fi
 
@@ -30,6 +31,10 @@ function doInclude
         fi
 
         file="$(echo "$file" | sed "s#~\!context\!~#$context#g")"
+    fi
+
+    if [ "$head" == '-->' ]; then
+        head=''
     fi
 
     if [ ! -e "$file" ]; then
@@ -51,9 +56,21 @@ function doInclude
         else
             echo "$line"
         fi
-    done < "$file"
+    done < <(readFile "$file" "$head")
 
     context="$startingContext"
+}
+
+function readFile
+{
+    local fileName="$1"
+    local head="$2"
+
+    if [ "$head" == '' ]; then
+        cat "$fileName"
+    else
+        head -n"$head" "$fileName"
+    fi
 }
 
 function doForEach
@@ -96,7 +113,7 @@ function doCommand
 
     case "$command" in
         'include')
-            doInclude "$p1" "$p2"
+            doInclude "$p1" "$p2" "$p3"
         ;;
         'forEach')
             doForEach "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
@@ -131,6 +148,7 @@ function doCompile
 
     doInclude "../$variantFile" >> "$outFile"
 
+    echo "Finished \"$name\"."
     cd ..
 }
 
@@ -144,8 +162,9 @@ fi
 # Figure out what to compile.
 if [ "$1" == '' ]; then
     while read variant; do
-        doCompile "$variant"
+        doCompile "$variant" &
     done < <(cvList)
+    wait
 else
     doCompile "$1"
 fi
