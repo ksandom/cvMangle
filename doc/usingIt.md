@@ -217,19 +217,19 @@ Exactly the same as `forEach`, except it limits the number of entries that get l
 Syntax
 
 ```html
-<!-- do forEach relative/path/to/directory/of/directories limit include relative/path/to/file/from/cvData/file.md -->
+<!-- do forEachLimit limit relative/path/to/directory/of/directories include relative/path/to/file/from/cvData/file.md -->
 ```
 
 Or more concisely
 
 ```html
-<!-- do forEach directoryOfdirectories limit include file.md -->
+<!-- do forEachLimit limit directoryOfdirectories include file.md -->
 ```
 
 Eg
 
 ```html
-<!-- do forEach src/jobHistory/jobs 5 include src/jobHistory/dynamicFull.md -->
+<!-- do forEachLimit 5 src/jobHistory/jobs include src/jobHistory/dynamicFull.md -->
 ```
 
 This will only show the 5 most recent entries.
