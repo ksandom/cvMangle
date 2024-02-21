@@ -88,6 +88,20 @@ Eg
 <!-- do include src/intro/longIntro.md -->
 ```
 
+### include while limiting the number of lines
+
+This is useful when you have a section that is too big for one format, but you want all of the lines on some other layouts.
+
+Syntax
+
+```html
+<!-- do include src/skills/keySkills.md . 15 -->
+```
+
+Here we are only including the first 15 lines of keySkills.md.
+
+The `.` is the context. So you can still provide that just like you would with the [include with context
+](#include-with-context) section above, if you want to .
 
 ### forEach
 
