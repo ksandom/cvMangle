@@ -25,7 +25,16 @@ Read full [using it](https://github.com/ksandom/cvMangle/blob/main/doc/usingIt.m
 
 ## Requirements
 
-* pandoc
+| Dependency | OpenSUSE package |
+| --- | --- |
+| pandoc | pandoc-cli |
+| xelatex | texlive-latex |
+| texlive-fontsize | texlive-fontsize |
+| texlive-lastpage | texlive-lastpage |
+
+These will slowly start to be automated in `./install/installDeps.sh`.
+
+Pull requests adding packages for other distributions welcome.
 
 Read more: [Where it works](https://github.com/ksandom/cvMangle/blob/main/doc/whereItWorks.md).
 

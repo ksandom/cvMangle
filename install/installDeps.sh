@@ -7,7 +7,7 @@ cd lib
 
 if [ -d hk-pandoc-filters ]; then
     cd hk-pandoc-filters
-    git pull
+    git submodule update --recursive --remote
 else
     git submodule add https://github.com/chrisaga/hk-pandoc-filters.git
 fi
