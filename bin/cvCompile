@@ -61,6 +61,55 @@ function doInclude
     context="$startingContext"
 }
 
+function doFilteredInclude
+{
+    local rawFilterName="$1"
+    local file="$2"
+    local contextOverride="$3"
+    local head="$4"
+
+    local filter="$(getFilter "$rawFilterName")"
+    if [ "${rawFilterName:0:1}" != '!' ]; then
+        doInclude "$file" "$contextOverride" "$head" | grep -i "\($filter\)"
+    else
+        doInclude "$file" "$contextOverride" "$head" | grep -iv "\($filter\)"
+    fi
+}
+
+function doHighlightFilterInclude
+{
+    local rawFilterName="$1"
+    local file="$2"
+    local contextOverride="$3"
+    local head="$4"
+
+    local filter="$(getFilter "$rawFilterName")"
+    doInclude "$file" "$contextOverride" "$head" | sed "s/\($filter\)/**\1**/g"
+}
+
+function getFilter
+{
+    local rawFilterName="$1"
+    if [ "$rawFilterName" == '-->' ]; then
+        echo "getFilter: Got '-->'" >&2
+        return 0
+    fi
+
+    if [ -e "$rawFilterName" ]; then
+        echo "getFilter: $rawFilterName looks like a file or folder. Expected a filterName." >&2
+        return 0
+    fi
+
+    local filterName=''
+    if [ "${rawFilterName:0:1}" != '!' ]; then
+        filterName="filter_$rawFilterName"
+    else
+        filterName="filter_${rawFilterName:1}"
+    fi
+
+    echo "${!filterName}"
+}
+
 function readFile
 {
     local fileName="$1"
@@ -124,6 +173,20 @@ function doCommand
         ;;
         'forEachLimit')
             doForEach "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
+        ;;
+        'createFilter')
+            # <!-- do createFilter skills chef|terraform|pagerduty|pingdom -->
+            local filterName="filter_$p1"
+            export "$filterName"="$(echo "$p2" | sed 's/|/\\|/g')"
+            echo "Created filter $p1 = ${!filterName}" >&2
+        ;;
+        'filteredInclude')
+            # <!-- do filteredInclude skills ~!context!~/skills-dev.md  -->
+            doFilteredInclude "$p1" "$p2" "$p3" "$p4"
+        ;;
+        'highlightFilterInclude')
+            # <!-- do highlightFilterInclude skills src/keySkills/skillMap-withYears-sysadmin.md -->
+            doHighlightFilterInclude "$p1" "$p2" "$p3" "$p4"
         ;;
         *)
             echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2
