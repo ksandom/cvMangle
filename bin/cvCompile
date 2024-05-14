@@ -61,6 +61,23 @@ function doInclude
     context="$startingContext"
 }
 
+function doFilteredInclude
+{
+    local rawFilterName="$1"
+    local file="$2"
+    local contextOverride="$3"
+    local head="$4"
+
+    local filterName=''
+    if [ "${rawFilterName:0:1}" != '!' ]; then
+        filterName="filter_$rawFilterName"
+        doInclude "$file" "$contextOverride" "$head" | grep -i "\(${!filterName}\)"
+    else
+        filterName="filter_${rawFilterName:1}"
+        doInclude "$file" "$contextOverride" "$head" | grep -iv "\(${!filterName}\)"
+    fi
+}
+
 function readFile
 {
     local fileName="$1"
@@ -124,6 +141,16 @@ function doCommand
         ;;
         'forEachLimit')
             doForEach "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
+        ;;
+        'createFilter')
+            # <!-- do createFilter skills chef|terraform|pagerduty|pingdom -->
+            local filterName="filter_$p1"
+            export "$filterName"="$(echo "$p2" | sed 's/|/\\|/g')"
+            echo "Created filter $p1 = ${!filterName}" >&2
+        ;;
+        'filteredInclude')
+            # <!-- do filteredInclude skills ~!context!~/skills-dev.md  -->
+            doFilteredInclude "$p1" "$p2" "$p3" "$p4"
         ;;
         *)
             echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2

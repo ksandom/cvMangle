@@ -46,7 +46,7 @@ BUT...
 
 If you modify something that has been generated for you, and then later re-run [cvGenerateBase](https://github.com/ksandom/cvMangle/blob/main/bin/cvGenerateBase), you will lose your work. To try and prevent this, things that a user is likely to want to edit, is prefixed with "example". Conversely, things that are unlikely to need to change like the contents of [src/util](https://github.com/ksandom/cvMangle/tree/main/examples/cvData/src/util) are not prefixed.
 
-## cvMangle commands
+## cvMangle basic commands
 
 ### include - basic syntax
 
@@ -208,7 +208,7 @@ In both cases, they have `~!context!~`, which resolves to the current item withi
 
 So as we iterate over each directory within the jobs directory, we include a few files. How many, depends on which file we told the forEach to include.
 
-## forEachLimit
+### forEachLimit
 
 Exactly the same as `forEach`, except it limits the number of entries that get listed. This is useful if you want to only show a subset of the results for a particular variant.
 
@@ -233,3 +233,43 @@ Eg
 ```
 
 This will only show the 5 most recent entries.
+
+## cvMangle advanced commands
+
+### createFilter
+
+You can create a re-usable filter to select only the lines that match a regex.
+
+Syntax:
+
+```
+<!-- do createFilter filterName pipeSeparatedListOfThingsToFind -->
+```
+
+Example:
+
+```
+<!-- do createFilter skills chef|terraform|pagerduty|pingdom -->
+```
+
+In this case, the `|` is acting an an or. This normally needs escaping, but here it is done for you. Other things that need to be escaped are not done for you, so you will need to do those yourself.
+
+### filteredInclude
+
+This is how you apply a created filter.
+
+Syntax:
+
+```
+<!-- do filteredInclude filterName fileToInclude  -->
+```
+
+Example:
+
+```
+<!-- do filteredInclude skills ~!context!~/skills-dev.md  -->
+```
+
+`filteredInclude` takes all the same parameters as `include`, but with the filterName in front.
+
+If `filterName` begins with a `!`, the `!` will be removed, and the opposite of the filter will be applied. Ie the results that would have been excluded, will now be shown instead of the results that would have matched.
