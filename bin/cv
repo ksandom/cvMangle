@@ -2,5 +2,5 @@
 # Compile and build all variants.
 # Copyright (C) 2023  Kevin Sandom
 
-cvCompile "$1"
-cvBuild "$1"
+cvCompile "$1" "$2"
+cvBuild "$1" "$2"

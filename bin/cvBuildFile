@@ -7,6 +7,7 @@ tmpFile="/tmp/$$-cv.md"
 variant="$2"
 suggestedVersion="${3:-0}"
 cvConfig="cvData/cvConfig"
+type="${4:-pdf}"
 
 function suggestName
 {
@@ -21,7 +22,7 @@ function getFileName
   if [ "$variantText" == '' ]; then
     echo "$name-cv-$whoCamel.pdf"
   else
-    echo "$name-cv-$whoCamel-$variantText.pdf"
+    echo "$name-cv-$whoCamel-$variantText.$type"
   fi
 }
 

@@ -9,8 +9,9 @@ function doBuild
     local name="$1"
     local file="cvData/compiled/$name.md"
     local version="$2"
+    local type="${3:-pdf}"
 
-    cvBuildFile "$file" "$name" "$version"
+    cvBuildFile "$file" "$name" "$version" "$type"
 }
 
 # Don't run if we aren't in the right place.
@@ -48,10 +49,12 @@ lastDay=$lastDay" > "$numberingConfig"
 # Choose how to build the CVs based on what input we got.
 if [ "$1" == '' ]; then
     while read variant; do
-        doBuild "$variant" "$versionNumber" &
+        doBuild "$variant" "$versionNumber" "$type" &
     done < <(cvList)
     wait
 else
-    doBuild "$1" "$versionNumber"
+    variant="$1"
+    type="$2"
+    doBuild "$1" "$versionNumber" "$type"
 fi
 
