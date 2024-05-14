@@ -249,7 +249,7 @@ Syntax:
 Example:
 
 ```
-<!-- do createFilter skills chef|terraform|pagerduty|pingdom -->
+<!-- do createFilter skills Chef|Terraform|Pagerduty|Pingdom|New.Relic -->
 ```
 
 In this case, the `|` is acting an an or. This normally needs escaping, but here it is done for you. Other things that need to be escaped are not done for you, so you will need to do those yourself.
@@ -273,3 +273,27 @@ Example:
 `filteredInclude` takes all the same parameters as `include`, but with the filterName in front.
 
 If `filterName` begins with a `!`, the `!` will be removed, and the opposite of the filter will be applied. Ie the results that would have been excluded, will now be shown instead of the results that would have matched.
+
+### highlightFilterInclude
+
+Highlight all matches from the filter in an include.
+
+Important notes:
+
+* Case-sensitive.
+* It's a dumb search&replace. If it matches with something like a URL, it will break it.
+* Spaces are not yet well handled. You can get around this by using a `.` when creating a filter. Eg `New.Relic`
+
+Syntax:
+
+```
+<!-- do highlightFilterInclude filterName fileToInclude -->
+```
+
+Example:
+
+```
+<!-- do highlightFilterInclude skills src/keySkills/skillMap-withYears-sysadmin.md -->
+```
+
+`highlightFilterInclude` takes all the same parameters as `include`, but with the filterName in front.
