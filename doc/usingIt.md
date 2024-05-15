@@ -297,3 +297,20 @@ Example:
 ```
 
 `highlightFilterInclude` takes all the same parameters as `include`, but with the filterName in front.
+
+### filteredIncludeToList
+
+Just like `filteredInclude`, but:
+
+* Creates a comma (`,`) separated list of the items it receives on a single line.
+    * The last item gets a full-stop (`.`).
+* Expects a list where each line is a new item, and a blank line denotes the end of that list. Following items are a new list.
+
+### filteredIncludeToBulletedList
+
+Just like `filteredIncludeToList`, but:
+
+* Creates a comma (`,`) separated list of the items it receives.
+    * The last item gets a full-stop (`.`).
+    * Each final line is a single bullet point. A blank line in the input denotes the end of the current bullet point, and any more lines will begin with a new bullet point.
+* Expects a list where each line is a new item, and a blank line denotes the end of that list. Following items are a new list.
