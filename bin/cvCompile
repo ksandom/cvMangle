@@ -117,10 +117,10 @@ function toList
         previousLine="$line"
     done
 
-    if [ "$hasDisplayedSomething" == 'true' ]; then
+    if [ "$previousLine" != '' ]; then
         showListItem "$hasDisplayedSomething" "$firstLinePrefix" "."
-        [ "$showNewLine" == 'true' ] && echo
     fi
+    [ "$showNewLine" == 'true' ] && echo
 }
 
 function showListItem
