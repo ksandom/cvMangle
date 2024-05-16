@@ -84,7 +84,56 @@ function doHighlightFilterInclude
     local head="$4"
 
     local filter="$(getFilter "$rawFilterName")"
-    doInclude "$file" "$contextOverride" "$head" | sed "s/\($filter\)/**\1**/g"
+    local surround='\(\ \|-\|\[\|\]\|,\|:\)'
+    doInclude "$file" "$contextOverride" "$head" | sed "s/$surround\($filter\)$surround/\1**\2**\3/g"
+}
+
+function noComments
+{
+    grep -v '^<!--'
+}
+
+function toList
+{
+    local previousLine=''
+    local hasDisplayedSomething='false'
+
+    local showNewLine="$1"
+    local firstLinePrefix="$2"
+
+    while read -r line; do
+        if [ "$line" != '' ]; then
+            if [ "$previousLine" != '' ]; then
+                showListItem "$hasDisplayedSomething" "$firstLinePrefix" ","
+                hasDisplayedSomething='true'
+            fi
+        else
+            hasDisplayedSomething='false'
+            if [ "$previousLine" != '' ]; then
+                showListItem "$hasDisplayedSomething" "$firstLinePrefix" "."
+            fi
+            [ "$showNewLine" == 'true' ] && echo
+        fi
+        previousLine="$line"
+    done
+
+    if [ "$previousLine" != '' ]; then
+        showListItem "$hasDisplayedSomething" "$firstLinePrefix" "."
+    fi
+    [ "$showNewLine" == 'true' ] && echo
+}
+
+function showListItem
+{
+    local hasDisplayedSomething="$1"
+    local firstLinePrefix="$2"
+    local lineSuffix="$3"
+
+    if [ "$hasDisplayedSomething" == 'true' ]; then
+        echo "$previousLine$lineSuffix "
+    else
+        echo "$firstLinePrefix$previousLine$lineSuffix "
+    fi
 }
 
 function getFilter
@@ -183,6 +232,14 @@ function doCommand
         'filteredInclude')
             # <!-- do filteredInclude skills ~!context!~/skills-dev.md  -->
             doFilteredInclude "$p1" "$p2" "$p3" "$p4"
+        ;;
+        'filteredIncludeToList')
+            # <!-- do filteredIncludeToList skills ~!context!~/skills-dev.md  -->
+            doFilteredInclude "$p1" "$p2" "$p3" "$p4" | noComments | toList
+        ;;
+        'filteredIncludeToBulletedList')
+            # <!-- do filteredIncludeToList skills ~!context!~/skills-dev.md  -->
+            doFilteredInclude "$p1" "$p2" "$p3" "$p4" | noComments | toList true '* '
         ;;
         'highlightFilterInclude')
             # <!-- do highlightFilterInclude skills src/keySkills/skillMap-withYears-sysadmin.md -->
