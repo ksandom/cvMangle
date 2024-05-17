@@ -90,7 +90,7 @@ function doHighlightFilterInclude
 
 function noComments
 {
-    grep -v '^<!--'
+    grep -v '^<!--' | sed 's/<!--.*-->//g'
 }
 
 function toList
