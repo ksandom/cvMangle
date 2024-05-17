@@ -156,7 +156,14 @@ function getFilter
         filterName="filter_${rawFilterName:1}"
     fi
 
-    echo "${!filterName}"
+    filter="${!filterName}"
+    if [ "$filter" == '' ]; then
+        filter='.*'
+        echo "Filter $rawFilterName is used, but not set. Defaulting to this:" >&2
+        echo "<!-- do createFilter $rawFilterName .* -->" >&2
+    fi
+
+    echo "$filter"
 }
 
 function processVariables
