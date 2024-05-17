@@ -159,6 +159,38 @@ function getFilter
     echo "${!filterName}"
 }
 
+function processVariables
+{
+    local fileIn="$1"
+
+    echo "Overrideable defaults:"
+    while read -r line; do
+        rawVarName="$(echo "$line" | cut -d\  -f1)"
+        varName="var_$rawVarName"
+        defaultValue="$(echo "$line" | cut -d\  -f2-)"
+        setValue="${!varName}"
+
+        if [ "$setValue" == '' ]; then
+            value="$defaultValue"
+        else
+            value="$setValue"
+        fi
+
+        #echo "  var=$varName default=\"$defaultValue\" set=\"$setValue\" use=\"$value\""
+        echo "<!-- do override $rawVarName $defaultValue -->"
+
+        sed -i "s|~#$rawVarName#.*#~|$value|g" $fileIn
+    done < <(getVariablesInFile "$fileIn")
+
+    rm -f "$tmpFile"
+}
+
+function getVariablesInFile
+{
+    local fileIn="$1"
+    grep '~#.*#.*#~' "$fileIn" | sed 's/^.*~#//g;s/#~.*$//g;s/#/ /g'
+}
+
 function readFile
 {
     local fileName="$1"
@@ -226,7 +258,7 @@ function doCommand
         'createFilter')
             # <!-- do createFilter skills chef|terraform|pagerduty|pingdom -->
             local filterName="filter_$p1"
-            export "$filterName"="$(echo "$p2" | sed 's/|/\\|/g')"
+            export "$filterName"="$(echo "$p2|always" | sed 's/|/\\|/g')"
             echo "Created filter $p1 = ${!filterName}" >&2
         ;;
         'filteredInclude')
@@ -244,6 +276,12 @@ function doCommand
         'highlightFilterInclude')
             # <!-- do highlightFilterInclude skills src/keySkills/skillMap-withYears-sysadmin.md -->
             doHighlightFilterInclude "$p1" "$p2" "$p3" "$p4"
+        ;;
+        'override')
+            # <!-- do override job1Title Head chef -->
+            local varName="var_$p1"
+            export "$varName"="$(echo "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8" | sed 's/ *--> *$//g')"
+            echo "Overrode var $p1 = ${!varName}" >&2
         ;;
         *)
             echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2
@@ -274,6 +312,7 @@ function doCompile
     touch "$outFile"
 
     doInclude "../$variantFile" >> "$outFile"
+    processVariables "$outFile"
 
     echo "Finished \"$name\"."
     cd ..

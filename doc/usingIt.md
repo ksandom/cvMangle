@@ -314,3 +314,29 @@ Just like `filteredIncludeToList`, but:
     * The last item gets a full-stop (`.`).
     * Each final line is a single bullet point. A blank line in the input denotes the end of the current bullet point, and any more lines will begin with a new bullet point.
 * Expects a list where each line is a new item, and a blank line denotes the end of that list. Following items are a new list.
+
+### override
+
+An easy way to customise things like job titles when doing a custom CV for a specific role, while defaulting to something sensible.
+
+Here is the code from `template/jobHistory/jobs/job1/jobHeading.md`:
+
+```
+### Company 1 / Job title 1
+```
+
+Let's change the job title like this:
+
+```
+### Company 1 / ~#job1Title#Job title 1#~
+```
+
+If we do nothing else, it will still create a heading with the text "Company 1 / Job title 1".
+
+But we can add the following like to a variant in variants/
+
+```
+<!-- do override job1Title Senior admin -->
+```
+
+it will now create a heading with the text "Company 1 / Senior admin", but only in that variant.
