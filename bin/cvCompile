@@ -210,6 +210,17 @@ function readFile
     fi
 }
 
+function limit
+{
+    local head="$1"
+
+    if [ "$head" == '' ]; then
+        cat -
+    else
+        head -n"$head"
+    fi
+}
+
 function doForEach
 {
     local limit="$1"
@@ -254,7 +265,7 @@ function doCommand
 
     case "$command" in
         'include')
-            doInclude "$p1" "$p2" "$p3"
+            doInclude "$p1" "$p2" | limit "$p3"
         ;;
         'forEach')
             doForEach . "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8"
@@ -270,19 +281,19 @@ function doCommand
         ;;
         'filteredInclude')
             # <!-- do filteredInclude skills ~!context!~/skills-dev.md  -->
-            doFilteredInclude "$p1" "$p2" "$p3" "$p4"
+            doFilteredInclude "$p1" "$p2" "$p3" | limit "$p4"
         ;;
         'filteredIncludeToList')
             # <!-- do filteredIncludeToList skills ~!context!~/skills-dev.md  -->
-            doFilteredInclude "$p1" "$p2" "$p3" "$p4" | noComments | toList
+            doFilteredInclude "$p1" "$p2" "$p3" | noComments | toList | limit "$p4"
         ;;
         'filteredIncludeToBulletedList')
             # <!-- do filteredIncludeToList skills ~!context!~/skills-dev.md  -->
-            doFilteredInclude "$p1" "$p2" "$p3" "$p4" | noComments | toList true '* '
+            doFilteredInclude "$p1" "$p2" "$p3" | noComments | toList true '* ' | limit "$p4"
         ;;
         'highlightFilterInclude')
             # <!-- do highlightFilterInclude skills src/keySkills/skillMap-withYears-sysadmin.md -->
-            doHighlightFilterInclude "$p1" "$p2" "$p3" "$p4"
+            doHighlightFilterInclude "$p1" "$p2" "$p3" | limit "$p4"
         ;;
         'override')
             # <!-- do override job1Title Head chef -->
