@@ -281,7 +281,7 @@ function doCommand
         ;;
         'filteredInclude')
             # <!-- do filteredInclude skills ~!context!~/skills-dev.md  -->
-            doFilteredInclude "$p1" "$p2" "$p3" | limit "$p4"
+            doFilteredInclude "$p1" "$p2" "$p3" | noComments | limit "$p4"
         ;;
         'filteredIncludeToList')
             # <!-- do filteredIncludeToList skills ~!context!~/skills-dev.md  -->
@@ -293,7 +293,7 @@ function doCommand
         ;;
         'highlightFilterInclude')
             # <!-- do highlightFilterInclude skills src/keySkills/skillMap-withYears-sysadmin.md -->
-            doHighlightFilterInclude "$p1" "$p2" "$p3" | limit "$p4"
+            doHighlightFilterInclude "$p1" "$p2" "$p3" | noComments | limit "$p4"
         ;;
         'override')
             # <!-- do override job1Title Head chef -->
