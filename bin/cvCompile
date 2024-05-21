@@ -186,7 +186,7 @@ function processVariables
         #echo "  var=$varName default=\"$defaultValue\" set=\"$setValue\" use=\"$value\""
         echo "<!-- do override $rawVarName $defaultValue -->"
 
-        sed -i "s|~#$rawVarName#.*#~|$value|g" $fileIn
+        sed -i "s|~#$rawVarName#.*#~|$value|g" "$fileIn"
     done < <(getVariablesInFile "$fileIn")
 
     rm -f "$tmpFile"
