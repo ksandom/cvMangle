@@ -20,6 +20,15 @@ function listSrc
     find | cut -b3- | grep ^src | sort
 }
 
+function filter
+{
+    if [ "$1" == '' ]; then
+        cat -
+    else
+        grep -i "$1"
+    fi
+}
+
 function showHelp
 {
     echo -e "List stuff.\nHere is some stuff that you can list:\n"
@@ -37,19 +46,22 @@ fi
 # Figure out what to get.
 case "$1" in
     "variants") # List available variants.
-        listVariants
+        listVariants | filter "$2"
     ;;
     "custom") # List includable files in src/.
-        listCustom
+        listCustom | filter "$2"
     ;;
     "src") # List includable files in src/.
-        listSrc
+        listSrc | filter "$2"
     ;;
     "help") # Show this help.
         showHelp
     ;;
-    *)
+    "") # Default to showing the variants.
         listVariants
+    ;;
+    *) # Search for custom CVs using the provided parameter.
+        listCustom | filter "$1"
     ;;
 esac
 
