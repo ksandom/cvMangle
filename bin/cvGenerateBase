@@ -20,7 +20,7 @@ fi
 mkdir -pv cvData
 cd cvData
 
-mkdir -pv src variant compiled custom
+mkdir -pv src variant compiled custom outs
 
 echo
 echo "Copying example files."

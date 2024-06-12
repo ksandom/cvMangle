@@ -85,7 +85,7 @@ function doHighlightFilterInclude
 
     local filter="$(getFilter "$rawFilterName")"
     local surround='\(\ \|-\|\[\|\]\|,\|:\)'
-    doInclude "$file" "$contextOverride" "$head" | sed "s/$surround\($filter\)$surround/\1**\2**\3/g"
+    doInclude "$file" "$contextOverride" "$head" | sed "s|$surround\($filter\)$surround|\1**\2**\3|g"
 }
 
 function noComments
@@ -214,10 +214,14 @@ function limit
 {
     local head="$1"
 
-    if [ "$head" == '' ]; then
+    if [ "$head" == '' ] || [ "$head" == '-->' ] ; then
         cat -
     else
-        head -n"$head"
+        if [ "$head" -gt 0 ]; then
+            head -n"$head"
+        else
+            cat -
+        fi
     fi
 }
 
