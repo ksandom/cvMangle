@@ -26,6 +26,19 @@ function getFileName
   fi
 }
 
+function handleOldVersions
+{
+  # Move old versions out of the way.
+  local directory="$1"
+  local startDirectory="$(pwd)"
+  local variant="$2"
+
+  cd "$directory"
+  mkdir -pv old
+  mv -v *-cv-*-$variant.pdf* old
+  cd "$startDirectory"
+}
+
 function isCustom
 {
   local name="$1"
@@ -91,19 +104,6 @@ else
   echo "$variant: CV_NO_AUTO is set to \"$CV_NO_AUTO\". Using the suggested version number of $suggestedVersion."
   echo "$variant: File out: \"$outFile\" ."
 fi
-
-function handleOldVersions
-{
-  # Move old versions out of the way.
-  local directory="$1"
-  local startDirectory="$(pwd)"
-  local variant="$2"
-
-  cd "$directory"
-  mkdir -pv old
-  mv -v *-$variant.pdf* old
-  cd "$startDirectory"
-}
 
 # Change destination if it's custom.
 isCustom "$variant"
