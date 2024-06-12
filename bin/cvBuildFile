@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build a specific file.
-# Copyright (C) 2023  Kevin Sandom
+# Copyright (C) 2023-2024  Kevin Sandom
 
 inFile="${1:-cvData/cvData.md}"
 tmpFile="/tmp/$$-cv.md"
@@ -92,40 +92,39 @@ else
   echo "$variant: File out: \"$outFile\" ."
 fi
 
+function handleOldVersions
+{
+  # Move old versions out of the way.
+  local directory="$1"
+  local startDirectory="$(pwd)"
+  local variant="$2"
+
+  cd "$directory"
+  mkdir -pv old
+  mv -v *-$variant.pdf* old
+  cd "$startDirectory"
+}
 
 # Change destination if it's custom.
 isCustom "$variant"
 custom="$?"
-
-if [ "$custom" == "0" ]; then
+if [ -e "outs/$variant" ]; then
+  outFile="outs/$variant/$outFile"
+  handleOldVersions "outs/$variant" "$variant"
+elif [ "$custom" == "0" ]; then
   outFile="custom/$outFile"
   echo "$variant: Is custom. New destination: $outFile"
   mkdir -p custom
+  handleOldVersions custom "$variant"
 else
   echo "$variant: Is not custom."
+  handleOldVersions . "$variant"
 fi
 
 
 # Put in variables.
 echo "$variant: Preparing input: $tmpFile."
 sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$whoCamel"'/g;s/~!variant!~/'"${variant^}"'/g' "$inFile" > "$tmpFile"
-
-
-# Move old versions out of the way.
-if [ "$custom" == "0" ]; then
-  cd custom
-  mkdir -p old
-  echo "$variant: Moving old custom version to old/."
-  mv -v *-$variant.pdf* old
-  cd ..
-else
-  if [ "$variant" != '' ]; then
-    mkdir -p old
-    echo "$variant: Moving old versions to old/."
-    mv -v *-$variant.pdf* old
-  fi
-fi
-
 
 
 # Generate the PDF.
