@@ -1,6 +1,6 @@
 #!/bin/bash
 # Compile markdown into a single markdown file.
-# Copyright (C) 2023  Kevin Sandom
+# Copyright (C) 2023-2024  Kevin Sandom
 
 function listParts
 {
@@ -91,6 +91,20 @@ function doHighlightFilterInclude
 function noComments
 {
     grep -v '^<!--' | sed 's/<!--.*-->//g'
+}
+
+function noNewLines
+{
+    lines="$(grep -v '^ *$')"
+    # echo -e "\n\nLines begin:----------" >&2
+    # echo "$lines" >&2
+    echo "$lines"
+    # echo -e "Lines ended.------------" >&2
+}
+
+function noLinks
+{
+    sed 's/\]([^\[]*)//g;s/\[//g'
 }
 
 function toList
@@ -289,7 +303,7 @@ function doCommand
         ;;
         'filteredIncludeToList')
             # <!-- do filteredIncludeToList skills ~!context!~/skills-dev.md  -->
-            doFilteredInclude "$p1" "$p2" "$p3" | noComments | toList | limit "$p4"
+            doFilteredInclude "$p1" "$p2" "$p3" | noComments | noNewLines | toList | limit "$p4"
         ;;
         'filteredIncludeToBulletedList')
             # <!-- do filteredIncludeToList skills ~!context!~/skills-dev.md  -->
@@ -304,6 +318,10 @@ function doCommand
             local varName="var_$p1"
             export "$varName"="$(echo "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8" | sed 's/ *--> *$//g')"
             echo "Overrode var $p1 = ${!varName}" >&2
+        ;;
+        'noLinks')
+            # <!-- do noLinks filteredInclude skills ~!context!~/skills-dev.md  -->
+            doCommand "$p1" "$p2" "$p3" "$p4" "$p5" "$p6" "$p7" "$p8" | noLinks
         ;;
         *)
             echo "cvCompile: Unknown command: \"$command\" in \"$line\"" >&2
