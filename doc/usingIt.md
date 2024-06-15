@@ -340,3 +340,15 @@ But we can add the following like to a variant in variants/
 ```
 
 it will now create a heading with the text "Company 1 / Senior admin", but only in that variant.
+
+### noLinks
+
+`noLinks` strips out the hyperlinks from output of a given command.
+
+Simply put the `noLinks` command in front of the command that you are already using. Eg:
+
+```
+<!-- do noLinks filteredIncludeToList skills ~!context!~/skills-communication.md -->
+```
+
+[More detail](https://github.com/ksandom/cvMangle/blob/main/doc/howTo/removeLinks.md).
