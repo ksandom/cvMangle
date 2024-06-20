@@ -369,7 +369,7 @@ fi
 if [ "$1" == '' ]; then
     while read variant; do
         doCompile "$variant" &
-    done < <(cvList)
+    done < <(cvList variants)
     wait
 else
     doCompile "$1"
