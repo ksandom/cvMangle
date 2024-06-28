@@ -107,12 +107,16 @@ fi
 
 # Change destination if it's custom.
 isCustom "$variant"
+convenienceSymlinkName="convenience-cvLive.pdf"
+convenienceSymlink=""
 custom="$?"
 if [ -e "outs/$variant" ]; then
   outFile="outs/$variant/$outFile"
+  convenienceSymlink="outs/$variant/$convenienceSymlinkName"
   handleOldVersions "outs/$variant" "$variant"
 elif [ "$custom" == "0" ]; then
   outFile="custom/$outFile"
+  convenienceSymlink="custom/$variant-$convenienceSymlinkName"
   echo "$variant: Is custom. New destination: $outFile"
   mkdir -p custom
   handleOldVersions custom "$variant"
@@ -130,6 +134,18 @@ sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$
 # Generate the PDF.
 echo "$variant: Writing to \"$outFile\""
 pandoc $filters--pdf-engine xelatex "$tmpFile" -o "$outFile"
+
+
+# Create a convenience symlink for live updates while editing.
+if [ "$convenienceSymlink" != '' ]; then
+  outDir="$"$(dirname "$outFile")""
+  srcFile="$(basename "$outFile")"
+  cd "$outDir"
+  pwd
+  echo "dir=$outDir file=$srcFile"
+  ln -sfv "$srcFile" "$convenienceSymlink"
+  cd ~-
+fi
 
 
 # Clean up.
