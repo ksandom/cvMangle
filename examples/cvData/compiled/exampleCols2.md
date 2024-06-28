@@ -22,7 +22,7 @@ classoption:
 <!-- Begin a set of columns. -->
 
 :::: {.columns noskip=""}
-<!-- Begin a new column. -->
+<!-- Begin a new column of width 80%. -->
 
 ::: {.column width="80%" valign="t"}
 
@@ -36,7 +36,7 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 <!-- Get read for the next column (terminate the current column.) -->
 
 :::
-<!-- Begin a new column. -->
+<!-- Begin a new column of width 20%. -->
 
 ::: {.column width="20%" valign="t"}
 
@@ -56,7 +56,7 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 <!-- Begin a set of columns. -->
 
 :::: {.columns noskip=""}
-<!-- Begin a new column. -->
+<!-- Begin a new column of width 50%. -->
 
 ::: {.column width="50%" valign="t"}
 
@@ -86,7 +86,7 @@ Skills:
 <!-- Get read for the next column (terminate the current column.) -->
 
 :::
-<!-- Begin a new column. -->
+<!-- Begin a new column of width 50%. -->
 
 ::: {.column width="50%" valign="t"}
 

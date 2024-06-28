@@ -14,6 +14,7 @@ header-includes: |
     \usepackage{multicol}
     \usepackage[document]{ragged2e}
     \usepackage[none]{hyphenat}
+    \usepackage{fontsize}
 classoption:
     - onecolumn
 ---
