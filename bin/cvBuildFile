@@ -107,9 +107,9 @@ fi
 
 # Change destination if it's custom.
 isCustom "$variant"
+custom="$?"
 convenienceSymlinkName="convenience-cvLive.pdf"
 convenienceSymlink=""
-custom="$?"
 if [ -e "outs/$variant" ]; then
   outFile="outs/$variant/$outFile"
   convenienceSymlink="outs/$variant/$convenienceSymlinkName"
@@ -138,11 +138,11 @@ pandoc $filters--pdf-engine xelatex "$tmpFile" -o "$outFile"
 
 # Create a convenience symlink for live updates while editing.
 if [ "$convenienceSymlink" != '' ]; then
-  outDir="$"$(dirname "$outFile")""
+  outDir="$(dirname "$outFile")"
   srcFile="$(basename "$outFile")"
+  echo "dir=$outDir  file=$srcFile  mainFile=$outFile"
   cd "$outDir"
   pwd
-  echo "dir=$outDir file=$srcFile"
   ln -sfv "$srcFile" "$convenienceSymlink"
   cd ~-
 fi
