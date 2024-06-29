@@ -2,11 +2,12 @@
 # Rebuildthe example using the latest code.
 # Copyright (C) 2023  Kevin Sandom
 
-cd examples
+mkdir -p examples/example1
+cd examples/example1
 rm -Rf cvData/{src,compiled}
 cvGenerateBase --force
 
-cp -v variant/* cvData/variant
+cp -v ../variant/* cvData/variant
 
 cv
 

@@ -11,7 +11,9 @@ header-includes: |
     \fancyfoot[LE,LO]{~!whoNatural!~}
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
+    \usepackage{multicol}
     \usepackage[document]{ragged2e}
+    \usepackage[none]{hyphenat}
     \usepackage{fontsize}
 classoption:
     - onecolumn
@@ -30,22 +32,51 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 \pagebreak
 
 ## Job history
+<!-- Begin a non-breaking block.  -->
+
+::::::: {.columns noskip=""}
+:::::: {.column width="100%" valign="t"}
 
 ### Company 4 / Job title 4
+
+Company 4 does some old stuff.
+
+At Company 4, I did some old stuff.
 
 Responsibilities
 
 * Responsibility 2
 * Responsibility 3
 * Responsibility 4
+<!-- If you want a line to be included that is related to something you've asked for, you can put it in a comment on the same line. -->
+* Responsibility X<!-- Responsibility 1 -->
+* Responsibility 5<!-- Responsibility 5 -->
 
 Skills:
 
 * Skill -3
 * Skill -2
 * Skill -1
+* Skill 9
+* Skill A
+* Skill B
+* Skill X
+* Skill Y
+* Skill Z
+<!-- End of non-breaking block. -->
+
+::::::
+:::::::
+<!-- Begin a non-breaking block.  -->
+
+::::::: {.columns noskip=""}
+:::::: {.column width="100%" valign="t"}
 
 ### Company 3 / Job title 3
+
+Company 3 does some more stuff.
+
+At Company 3, I did some more stuff.
 
 Responsibilities
 
@@ -58,8 +89,23 @@ Skills:
 * Skill 1
 * Skill 3
 * Skill 4
+* Skill 8
+* Skill A
+* Skill B
+<!-- End of non-breaking block. -->
+
+::::::
+:::::::
+<!-- Begin a non-breaking block.  -->
+
+::::::: {.columns noskip=""}
+:::::: {.column width="100%" valign="t"}
 
 ### Company 2 / Job title 2
+
+Company 2 does some other stuff.
+
+At Company 2, I did some other stuff.
 
 Responsibilities
 
@@ -72,8 +118,23 @@ Skills:
 * Skill 2
 * Skill 4
 * Skill 5
+* Skill X
+* Skill Y
+* Skill A
+<!-- End of non-breaking block. -->
+
+::::::
+:::::::
+<!-- Begin a non-breaking block.  -->
+
+::::::: {.columns noskip=""}
+:::::: {.column width="100%" valign="t"}
 
 ### Company 1 / Job title 1
+
+Company 1 does some stuff.
+
+At Company 1, I did some stuff.
 
 Responsibilities
 
@@ -86,6 +147,14 @@ Skills:
 * Skill 1
 * Skill 2
 * Skill 3
+* Skill 8
+* Skill 9
+* Skill A
+* Skill D
+<!-- End of non-breaking block. -->
+
+::::::
+:::::::
 <!-- Insert a page break. -->
 \pagebreak
 
