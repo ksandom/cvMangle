@@ -106,17 +106,17 @@ else
 fi
 
 # Change destination if it's custom.
-isCustom "$variant"
-custom="$?"
-convenienceSymlinkName="convenience-cvLive.pdf"
+convenienceSymlinkName="convenience-cvLive"
+convenienceSymlinkPostfix=".pdf"
 convenienceSymlink=""
 if [ -e "outs/$variant" ]; then
+  echo "$variant: has outs/$variant. Using that."
   outFile="outs/$variant/$outFile"
   convenienceSymlink="outs/$variant/$convenienceSymlinkName"
   handleOldVersions "outs/$variant" "$variant"
-elif [ "$custom" == "0" ]; then
+elif isCustom "$variant"; then
   outFile="custom/$outFile"
-  convenienceSymlink="custom/$variant-$convenienceSymlinkName"
+  convenienceSymlink="$convenienceSymlinkName-$variant$convenienceSymlinkPostfix"
   echo "$variant: Is custom. New destination: $outFile"
   mkdir -p custom
   handleOldVersions custom "$variant"
@@ -124,7 +124,6 @@ else
   echo "$variant: Is not custom."
   handleOldVersions . "$variant"
 fi
-
 
 # Put in variables.
 echo "$variant: Preparing input: $tmpFile."

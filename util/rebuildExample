@@ -2,13 +2,16 @@
 # Rebuildthe example using the latest code.
 # Copyright (C) 2023  Kevin Sandom
 
+rm -Rf examples/example1
 mkdir -p examples/example1
 cd examples/example1
-rm -Rf cvData/{src,compiled}
+#rm -Rf cvData/{src,compiled,custom}
 cvGenerateBase --force
 
+cvSetWho "Example Person"
+
 cp -v ../variant/* cvData/variant
-cp -v ../template.md cvData/
+#cp -v ../template.md cvData/
 
 customJob="CompanyC-Job1"
 cvNew "$customJob"
