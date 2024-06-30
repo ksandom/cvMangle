@@ -106,13 +106,17 @@ else
 fi
 
 # Change destination if it's custom.
-isCustom "$variant"
-custom="$?"
+convenienceSymlinkName="convenience-cvLive"
+convenienceSymlinkPostfix=".pdf"
+convenienceSymlink=""
 if [ -e "outs/$variant" ]; then
+  echo "$variant: has outs/$variant. Using that."
   outFile="outs/$variant/$outFile"
+  convenienceSymlink="outs/$variant/$convenienceSymlinkName"
   handleOldVersions "outs/$variant" "$variant"
-elif [ "$custom" == "0" ]; then
+elif isCustom "$variant"; then
   outFile="custom/$outFile"
+  convenienceSymlink="$convenienceSymlinkName-$variant$convenienceSymlinkPostfix"
   echo "$variant: Is custom. New destination: $outFile"
   mkdir -p custom
   handleOldVersions custom "$variant"
@@ -120,7 +124,6 @@ else
   echo "$variant: Is not custom."
   handleOldVersions . "$variant"
 fi
-
 
 # Put in variables.
 echo "$variant: Preparing input: $tmpFile."
@@ -130,6 +133,18 @@ sed 's/~!today!~/'$name'/g;s/~!whoNatural!~/'"$whoNatural"'/g;s/~!whoCamel!~/'"$
 # Generate the PDF.
 echo "$variant: Writing to \"$outFile\""
 pandoc $filters--pdf-engine xelatex "$tmpFile" -o "$outFile"
+
+
+# Create a convenience symlink for live updates while editing.
+if [ "$convenienceSymlink" != '' ]; then
+  outDir="$(dirname "$outFile")"
+  srcFile="$(basename "$outFile")"
+  echo "dir=$outDir  file=$srcFile  mainFile=$outFile"
+  cd "$outDir"
+  pwd
+  ln -sfv "$srcFile" "$convenienceSymlink"
+  cd ~-
+fi
 
 
 # Clean up.

@@ -23,7 +23,7 @@ fi
 # Separate numbering.
 # Custom CVs don't need to follow the same numbering as everything else. However anything non-custom should share the same numbering to avoid potentially going back in time.
 if [ "$1" != '' ]; then
-    if ! cvList | grep -q "$1"; then
+    if ! cvList variants | grep -q "$1"; then
         if cvList custom | grep -q "$1"; then
             numberingDir="cvData/specificNumbering"
             mkdir -p "$numberingDir"
@@ -63,7 +63,7 @@ lastDay=$lastDay" > "$numberingConfig"
 if [ "$1" == '' ]; then
     while read variant; do
         doBuild "$variant" "$versionNumber" "$type" &
-    done < <(cvList)
+    done < <(cvList variants)
     wait
 else
     variant="$1"

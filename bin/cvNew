@@ -1,0 +1,32 @@
+#!/bin/bash
+# Create a new CV from a template.
+
+inFile="cvData/template.md"
+outFileRaw="$1"
+outFileDir="cvData/custom"
+
+if [ ! -e "$inFile" ]; then
+    echo "inFile: Can not see \"$inFile\"."
+    exit 1
+fi
+
+if [ "$outFileRaw" == '' ]; then
+    echo "outFile: Need a new CV name as the first parameter. Eg \"CompanyA-Job1\"."
+    exit 1
+fi
+
+outFile="$outFileDir/$outFileRaw.md"
+
+if [ -e "$outFile" ]; then
+    echo "outFile: \"$outFile\" already exists."
+    exit 1
+fi
+
+# Copy the basic template.
+cp -v "$inFile" "$outFile"
+
+# Let's generate some convenience include lines.
+while read layout; do
+    echo "<!-- # do include src/layout/$layout -->"
+done < <(ls cvData/src/layout) >> "$outFile"
+

@@ -27,9 +27,12 @@ echo "Copying example files."
 cd src
 if [ "$overwrite" == 'true' ]; then
     cp -Rv ~/.config/cvMangle/template/* .
+    cp -v template.md ..
 else
     cp -Rnv ~/.config/cvMangle/template/* .
+    cp -nv template.md ..
 fi
+rm template.md
 cd ..
 
 echo

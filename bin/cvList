@@ -57,8 +57,8 @@ case "$1" in
     "help") # Show this help.
         showHelp
     ;;
-    "") # Default to showing the variants.
-        listVariants
+    "") # Default to showing the custom variants.
+        listCustom
     ;;
     *) # Search for custom CVs using the provided parameter.
         listCustom | filter "$1"
