@@ -8,6 +8,11 @@ rm -Rf cvData/{src,compiled}
 cvGenerateBase --force
 
 cp -v ../variant/* cvData/variant
+cp -v ../template.md cvData/
+
+customJob="CompanyC-Job1"
+cvNew "$customJob"
+cv "$customJob"
 
 cv
 
