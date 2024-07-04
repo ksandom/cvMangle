@@ -49,9 +49,9 @@ You'll get some PDF files appear in `examples/` .
 
 ## For devs working with the example in the repo tree
 
-**NOTE:** If you are wanting to update any of the `src` or `variant` files in the [examples/cvData](https://github.com/ksandom/cvMangle/tree/main/examples/cvData), be sure to update them in the correct place, and then run `./util/rebuildExample` to refresh the examples directory.
+**NOTE:** If you are wanting to update any of the `src` or `variant` files in the [examples/example1/cvData](https://github.com/ksandom/cvMangle/tree/main/examples/example1/cvData), be sure to update them in the correct place, and then run `./util/rebuildExample` to refresh the examples directory.
 
 | Destination | Where to edit it |
 | --- | --- |
-| [examples/cvData/src](https://github.com/ksandom/cvMangle/tree/main/examples/cvData/src) | [template](https://github.com/ksandom/cvMangle/tree/main/template) |
-| [examples/cvData/variant](https://github.com/ksandom/cvMangle/tree/main/examples/cvData/variant) | [examples/variant](https://github.com/ksandom/cvMangle/tree/main/examples/variant) |
+| [examples/example1/cvData/src](https://github.com/ksandom/cvMangle/tree/main/examples/example1/cvData/src) | [template](https://github.com/ksandom/cvMangle/tree/main/template) |
+| [examples/example1/cvData/variant](https://github.com/ksandom/cvMangle/tree/main/examples/example1/cvData/variant) | [examples/variant](https://github.com/ksandom/cvMangle/tree/main/examples/variant) |
