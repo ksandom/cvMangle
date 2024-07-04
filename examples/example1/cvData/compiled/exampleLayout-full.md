@@ -27,6 +27,14 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
+
+## Key skills
+
+* Skill 1
+* Skill 2
+* Skill 3
+* Skill 4
+* Skill 5
 <!-- Insert a page break. -->
 \pagebreak
 
@@ -44,25 +52,12 @@ At Company 4, I did some old stuff.
 
 Responsibilities:
 
-
-* Responsibility 2
 * Responsibility 3
 * Responsibility 4
-* Responsibility X
-* Responsibility 5
 
 Skills:
 
-
-* Skill -3
-* Skill -2
-* Skill -1
-* Skill 9
-* Skill A
 * Skill B
-* Skill X
-* Skill Y
-* Skill Z
 <!-- End of non-breaking block. -->
 
 ::::::
@@ -80,19 +75,11 @@ At Company 3, I did some more stuff.
 
 Responsibilities:
 
-
-* Responsibility 2
 * Responsibility 4
-* Responsibility 6
 
 Skills:
 
-
-* Skill 1
-* Skill 3
 * Skill 4
-* Skill 8
-* Skill A
 * Skill B
 <!-- End of non-breaking block. -->
 
@@ -111,20 +98,13 @@ At Company 2, I did some other stuff.
 
 Responsibilities:
 
-
-* Responsibility 1
 * Responsibility 3
 * Responsibility 4
 
 Skills:
 
-
 * Skill 2
 * Skill 4
-* Skill 5
-* Skill X
-* Skill Y
-* Skill A
 <!-- End of non-breaking block. -->
 
 ::::::
@@ -142,32 +122,12 @@ At Company 1, I did some stuff.
 
 Responsibilities:
 
-
-* Responsibility 1
-* Responsibility 2
 * Responsibility 3
 
 Skills:
 
-
-* Skill 1
 * Skill 2
-* Skill 3
-* Skill 8
-* Skill 9
-* Skill A
-* Skill D
 <!-- End of non-breaking block. -->
 
 ::::::
 :::::::
-<!-- Insert a page break. -->
-\pagebreak
-
-## Key skills
-
-* Skill 1
-* Skill 2
-* Skill 3
-* Skill 4
-* Skill 5
