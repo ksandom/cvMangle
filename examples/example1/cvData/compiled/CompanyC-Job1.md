@@ -11,6 +11,7 @@ header-includes: |
     \fancyfoot[LE,LO]{~!whoNatural!~}
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
+    \usepackage{multicol}
     \usepackage[document]{ragged2e}
     \usepackage{fontsize}
 classoption:
@@ -18,6 +19,12 @@ classoption:
 ---
 
 # Curriculum Vitae – ~!whoNatural!~
+<!-- Begin a set of columns. -->
+
+:::: {.columns noskip=""}
+<!-- Begin a new column of width 80%. -->
+
+::: {.column width="80%" valign="t"}
 
 ## General statement
 
@@ -26,10 +33,32 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
-<!-- Insert a page break. -->
-\pagebreak
+<!-- Get read for the next column (terminate the current column.) -->
 
-## Job history
+:::
+<!-- Begin a new column of width 20%. -->
+
+::: {.column width="20%" valign="t"}
+
+## Key skills
+
+* Skill 1
+* Skill 2
+* Skill 3
+* Skill 4
+* Skill 5
+<!-- End of column set. -->
+
+:::
+::::
+
+## Job History
+<!-- Begin a set of columns. -->
+
+:::: {.columns noskip=""}
+<!-- Begin a new column of width 50%. -->
+
+::: {.column width="50%" valign="t"}
 <!-- Begin a non-breaking block.  -->
 
 ::::::: {.columns noskip=""}
@@ -37,26 +66,18 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 ### Company 4 / Job title 4
 
-Responsibilities
+Company 4 does some old stuff.
+
+At Company 4, I did some old stuff.
+
+Responsibilities:
 
 * Responsibility 2
-* Responsibility 3
-* Responsibility 4
-<!-- If you want a line to be included that is related to something you've asked for, you can put it in a comment on the same line. -->
-* Responsibility X<!-- Responsibility 1 -->
-* Responsibility 5<!-- Responsibility 5 -->
+* Responsibility X
 
 Skills:
 
-* Skill -3
-* Skill -2
-* Skill -1
-* Skill 9
 * Skill A
-* Skill B
-* Skill X
-* Skill Y
-* Skill Z
 <!-- End of non-breaking block. -->
 
 ::::::
@@ -68,24 +89,29 @@ Skills:
 
 ### Company 3 / Job title 3
 
-Responsibilities
+Company 3 does some more stuff.
+
+At Company 3, I did some more stuff.
+
+Responsibilities:
 
 * Responsibility 2
-* Responsibility 4
-* Responsibility 6
 
 Skills:
 
 * Skill 1
 * Skill 3
-* Skill 4
-* Skill 8
 * Skill A
-* Skill B
 <!-- End of non-breaking block. -->
 
 ::::::
 :::::::
+<!-- Get read for the next column (terminate the current column.) -->
+
+:::
+<!-- Begin a new column of width 50%. -->
+
+::: {.column width="50%" valign="t"}
 <!-- Begin a non-breaking block.  -->
 
 ::::::: {.columns noskip=""}
@@ -93,19 +119,16 @@ Skills:
 
 ### Company 2 / Job title 2
 
-Responsibilities
+Company 2 does some other stuff.
+
+At Company 2, I did some other stuff.
+
+Responsibilities:
 
 * Responsibility 1
-* Responsibility 3
-* Responsibility 4
 
 Skills:
 
-* Skill 2
-* Skill 4
-* Skill 5
-* Skill X
-* Skill Y
 * Skill A
 <!-- End of non-breaking block. -->
 
@@ -118,32 +141,25 @@ Skills:
 
 ### Company 1 / Job title 1
 
-Responsibilities
+Company 1 does some stuff.
+
+At Company 1, I did some stuff.
+
+Responsibilities:
 
 * Responsibility 1
 * Responsibility 2
-* Responsibility 3
 
 Skills:
 
 * Skill 1
-* Skill 2
 * Skill 3
-* Skill 8
-* Skill 9
 * Skill A
-* Skill D
 <!-- End of non-breaking block. -->
 
 ::::::
 :::::::
-<!-- Insert a page break. -->
-\pagebreak
+<!-- End of column set. -->
 
-## Key skills
-
-* Skill 1
-* Skill 2
-* Skill 3
-* Skill 4
-* Skill 5
+:::
+::::

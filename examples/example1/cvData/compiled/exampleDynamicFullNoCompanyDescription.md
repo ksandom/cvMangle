@@ -26,6 +26,14 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
+
+## Key skills
+
+* Skill 1
+* Skill 2
+* Skill 3
+* Skill 4
+* Skill 5
 <!-- Insert a page break. -->
 \pagebreak
 
@@ -39,16 +47,17 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 At Company 4, I did some old stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 2
 * Responsibility 3
 * Responsibility 4
-<!-- If you want a line to be included that is related to something you've asked for, you can put it in a comment on the same line. -->
-* Responsibility X<!-- Responsibility 1 -->
-* Responsibility 5<!-- Responsibility 5 -->
+* Responsibility X
+* Responsibility 5
 
 Skills:
+
 
 * Skill -3
 * Skill -2
@@ -72,13 +81,15 @@ Skills:
 
 At Company 3, I did some more stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 2
 * Responsibility 4
 * Responsibility 6
 
 Skills:
+
 
 * Skill 1
 * Skill 3
@@ -99,13 +110,15 @@ Skills:
 
 At Company 2, I did some other stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 1
 * Responsibility 3
 * Responsibility 4
 
 Skills:
+
 
 * Skill 2
 * Skill 4
@@ -126,13 +139,15 @@ Skills:
 
 At Company 1, I did some stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 1
 * Responsibility 2
 * Responsibility 3
 
 Skills:
+
 
 * Skill 1
 * Skill 2
@@ -145,13 +160,3 @@ Skills:
 
 ::::::
 :::::::
-<!-- Insert a page break. -->
-\pagebreak
-
-## Key skills
-
-* Skill 1
-* Skill 2
-* Skill 3
-* Skill 4
-* Skill 5

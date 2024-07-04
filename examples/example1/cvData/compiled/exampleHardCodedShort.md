@@ -32,8 +32,6 @@ I'm the dude for the job.
 * Skill 3
 * Skill 4
 * Skill 5
-<!-- Insert a page break. -->
-\pagebreak
 
 ## Job history
 

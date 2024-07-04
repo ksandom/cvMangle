@@ -27,142 +27,6 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
-<!-- Insert a page break. -->
-\pagebreak
-
-## Job history
-<!-- Begin a non-breaking block.  -->
-
-::::::: {.columns noskip=""}
-:::::: {.column width="100%" valign="t"}
-
-### Company 4 / Job title 4
-
-Company 4 does some old stuff.
-
-At Company 4, I did some old stuff.
-
-Responsibilities:
-
-
-* Responsibility 2
-* Responsibility 3
-* Responsibility 4
-* Responsibility X
-* Responsibility 5
-
-Skills:
-
-
-* Skill -3
-* Skill -2
-* Skill -1
-* Skill 9
-* Skill A
-* Skill B
-* Skill X
-* Skill Y
-* Skill Z
-<!-- End of non-breaking block. -->
-
-::::::
-:::::::
-<!-- Begin a non-breaking block.  -->
-
-::::::: {.columns noskip=""}
-:::::: {.column width="100%" valign="t"}
-
-### Company 3 / Job title 3
-
-Company 3 does some more stuff.
-
-At Company 3, I did some more stuff.
-
-Responsibilities:
-
-
-* Responsibility 2
-* Responsibility 4
-* Responsibility 6
-
-Skills:
-
-
-* Skill 1
-* Skill 3
-* Skill 4
-* Skill 8
-* Skill A
-* Skill B
-<!-- End of non-breaking block. -->
-
-::::::
-:::::::
-<!-- Begin a non-breaking block.  -->
-
-::::::: {.columns noskip=""}
-:::::: {.column width="100%" valign="t"}
-
-### Company 2 / Job title 2
-
-Company 2 does some other stuff.
-
-At Company 2, I did some other stuff.
-
-Responsibilities:
-
-
-* Responsibility 1
-* Responsibility 3
-* Responsibility 4
-
-Skills:
-
-
-* Skill 2
-* Skill 4
-* Skill 5
-* Skill X
-* Skill Y
-* Skill A
-<!-- End of non-breaking block. -->
-
-::::::
-:::::::
-<!-- Begin a non-breaking block.  -->
-
-::::::: {.columns noskip=""}
-:::::: {.column width="100%" valign="t"}
-
-### Company 1 / Job title 1
-
-Company 1 does some stuff.
-
-At Company 1, I did some stuff.
-
-Responsibilities:
-
-
-* Responsibility 1
-* Responsibility 2
-* Responsibility 3
-
-Skills:
-
-
-* Skill 1
-* Skill 2
-* Skill 3
-* Skill 8
-* Skill 9
-* Skill A
-* Skill D
-<!-- End of non-breaking block. -->
-
-::::::
-:::::::
-<!-- Insert a page break. -->
-\pagebreak
 
 ## Key skills
 
@@ -171,3 +35,70 @@ Skills:
 * Skill 3
 * Skill 4
 * Skill 5
+
+## Job History
+<!-- Begin a set of columns. -->
+
+:::: {.columns noskip=""}
+<!-- Begin a new column of width 50%. -->
+
+::: {.column width="50%" valign="t"}
+
+### Company 4 / Job title 4
+
+Company 4 does some stuff.
+
+At Company 4, I did some stuff.
+
+Skills:
+
+* Skill -3
+* Skill -2
+* Skill -1
+
+### Company 3 / Job title 3
+
+Company 3 does some more stuff.
+
+At Company 3, I did some more stuff.
+
+Skills:
+
+* Skill 1
+* Skill 3
+* Skill 4
+<!-- Get read for the next column (terminate the current column.) -->
+
+:::
+<!-- Begin a new column of width 50%. -->
+
+::: {.column width="50%" valign="t"}
+
+
+### Company 2 / Job title 2
+
+Company 2 does some other stuff.
+
+At Company 2, I did some other stuff.
+
+Skills:
+
+* Skill 2
+* Skill 4
+* Skill 5
+
+### Company 1 / Job title 1
+
+Company 1 does some stuff.
+
+At Company 1, I did some stuff.
+
+Skills:
+
+* Skill 1
+* Skill 2
+* Skill 3
+<!-- End of column set. -->
+
+:::
+::::

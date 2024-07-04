@@ -6,5 +6,5 @@
 <!-- do include src/util/pageBreak.md -->
 
 ## Job history
-<!-- do include src/jobHistory/exampleRecentJobHistory.md -->
-<!-- do include src/jobHistory/exampleOlderJobHistory.md -->
+<!-- do forEach src/jobHistory/recentJobs include src/jobHistory/exampleDynamicFull.md -->
+<!-- do forEach src/jobHistory/oldJobs include src/jobHistory/exampleDynamicFull.md -->

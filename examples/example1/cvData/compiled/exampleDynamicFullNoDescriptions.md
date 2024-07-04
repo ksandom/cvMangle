@@ -11,7 +11,6 @@ header-includes: |
     \fancyfoot[LE,LO]{~!whoNatural!~}
     \fancyfoot[CO,CE]{\thepage}
     \fancyfoot[RE,RO]{~!variant!~ layout: ~!today!~}
-    \usepackage{multicol}
     \usepackage[document]{ragged2e}
     \usepackage{fontsize}
 classoption:
@@ -27,6 +26,14 @@ Upon an autumn evening stroll in the local forest, I came upon some ducks yackin
 > A company needs someone like youuuuuuuuuuuuuu
 
 Indeed, a company does need someone like me. And you are lucky enough to be reading my CV.
+
+## Key skills
+
+* Skill 1
+* Skill 2
+* Skill 3
+* Skill 4
+* Skill 5
 <!-- Insert a page break. -->
 \pagebreak
 
@@ -38,20 +45,17 @@ Indeed, a company does need someone like me. And you are lucky enough to be read
 
 ### Company 4 / Job title 4
 
-Company 4 does some old stuff.
+Responsibilities:
 
-At Company 4, I did some old stuff.
-
-Responsibilities
 
 * Responsibility 2
 * Responsibility 3
 * Responsibility 4
-<!-- If you want a line to be included that is related to something you've asked for, you can put it in a comment on the same line. -->
-* Responsibility X<!-- Responsibility 1 -->
-* Responsibility 5<!-- Responsibility 5 -->
+* Responsibility X
+* Responsibility 5
 
 Skills:
+
 
 * Skill -3
 * Skill -2
@@ -73,17 +77,15 @@ Skills:
 
 ### Company 3 / Job title 3
 
-Company 3 does some more stuff.
+Responsibilities:
 
-At Company 3, I did some more stuff.
-
-Responsibilities
 
 * Responsibility 2
 * Responsibility 4
 * Responsibility 6
 
 Skills:
+
 
 * Skill 1
 * Skill 3
@@ -102,17 +104,15 @@ Skills:
 
 ### Company 2 / Job title 2
 
-Company 2 does some other stuff.
+Responsibilities:
 
-At Company 2, I did some other stuff.
-
-Responsibilities
 
 * Responsibility 1
 * Responsibility 3
 * Responsibility 4
 
 Skills:
+
 
 * Skill 2
 * Skill 4
@@ -131,17 +131,15 @@ Skills:
 
 ### Company 1 / Job title 1
 
-Company 1 does some stuff.
+Responsibilities:
 
-At Company 1, I did some stuff.
-
-Responsibilities
 
 * Responsibility 1
 * Responsibility 2
 * Responsibility 3
 
 Skills:
+
 
 * Skill 1
 * Skill 2
@@ -154,13 +152,3 @@ Skills:
 
 ::::::
 :::::::
-<!-- Insert a page break. -->
-\pagebreak
-
-## Key skills
-
-* Skill 1
-* Skill 2
-* Skill 3
-* Skill 4
-* Skill 5

@@ -6,9 +6,9 @@
 ## Job History
 <!-- do include src/util/colBegin.md -->
 <!-- do include src/util/col50.md -->
-<!-- do include src/jobHistory/exampleRecentJobHistory.md -->
+<!-- do forEach src/jobHistory/recentJobs include src/jobHistory/exampleDynamicFull.md -->
 <!-- do include src/util/colNext.md -->
 <!-- do include src/util/col50.md -->
-<!-- do include src/jobHistory/exampleOlderJobHistory.md -->
+<!-- do forEach src/jobHistory/oldJobs include src/jobHistory/exampleDynamicFull.md -->
 <!-- do include src/util/colEnd.md -->
 <!-- do include src/keySkills/exampleKeySkills.md -->

@@ -1,4 +1,6 @@
-<!-- Copyright (C) 2023  Kevin Sandom -->
-<!-- # This is a layout based variant. -->
-<!-- # The advantage of this is that it's very quick to change a custom CV to a different layout while keeping all of the customisation you put in such as skills selection. -->
-<!-- do include src/layout/exampleFullDynamic.md -->
+<!-- # Let's create the skills filter. It uses regex to select which lines to display. Spaces are not currently supported, so a "." is used to match anything. The "|" is an "Or" -->
+<!-- do createFilter skills Skill.1|Skill.3|Skill.A -->
+<!-- # -->
+<!-- # Same thing for the responsibilities filter. -->
+<!-- do createFilter responsibilities Responsibility.A|Responsibility.1|Responsibility.2 -->
+<!-- do include src/layout/exampleCols2.md -->

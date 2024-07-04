@@ -43,16 +43,17 @@ Company 4 does some old stuff.
 
 At Company 4, I did some old stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 2
 * Responsibility 3
 * Responsibility 4
-<!-- If you want a line to be included that is related to something you've asked for, you can put it in a comment on the same line. -->
-* Responsibility X<!-- Responsibility 1 -->
-* Responsibility 5<!-- Responsibility 5 -->
+* Responsibility X
+* Responsibility 5
 
 Skills:
+
 
 * Skill -3
 * Skill -2
@@ -78,13 +79,15 @@ Company 3 does some more stuff.
 
 At Company 3, I did some more stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 2
 * Responsibility 4
 * Responsibility 6
 
 Skills:
+
 
 * Skill 1
 * Skill 3
@@ -107,13 +110,15 @@ Company 2 does some other stuff.
 
 At Company 2, I did some other stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 1
 * Responsibility 3
 * Responsibility 4
 
 Skills:
+
 
 * Skill 2
 * Skill 4
@@ -136,13 +141,15 @@ Company 1 does some stuff.
 
 At Company 1, I did some stuff.
 
-Responsibilities
+Responsibilities:
+
 
 * Responsibility 1
 * Responsibility 2
 * Responsibility 3
 
 Skills:
+
 
 * Skill 1
 * Skill 2
