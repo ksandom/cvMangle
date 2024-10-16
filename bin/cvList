@@ -11,7 +11,7 @@ function listVariants
 function listCustom
 {
     cd cvData/custom
-    ls -1 | sed 's/\.md$//g'
+    ls -1tr | sed 's/\.md$//g'
 }
 
 function listSrc
@@ -56,6 +56,9 @@ case "$1" in
     ;;
     "help") # Show this help.
         showHelp
+    ;;
+    "latest") # Show the latest added custom CV.
+        listCustom | tail -n1
     ;;
     "") # Default to showing the custom variants.
         listCustom
